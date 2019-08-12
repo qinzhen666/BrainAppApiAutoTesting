@@ -9,6 +9,8 @@ import io.restassured.specification.RequestSpecification;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.Random;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.useRelaxedHTTPSValidation;
 
@@ -88,6 +90,11 @@ public class Api {
                 .then().log().all().extract().response();
     }
 
+    /**
+     * 替换URL中的请求地址，适配不同测试环境
+     * @param url
+     * @return
+     */
     public String[] updateUrl(String url){
         //fixed:多环境支持，替换url中ip地址，更新header的Host
         HashMap<String,String> Hosts = ApiConfig.getInstance().env.get(ApiConfig.getInstance().currentEnv);
@@ -102,6 +109,13 @@ public class Api {
         return new String[]{Host[0], newUrl[0]};
     }
 
+    /**
+     * 根据yaml生成接口定义并发送
+     * @param yamlPath
+     * @param map
+     * @param tokenPattern
+     * @return
+     */
     public Response getResponseFromYaml(String yamlPath, HashMap<String,Object> map,String tokenPattern){
         //fixed:根据yaml生成接口定义并发送
         Restful restful = getApiFromYaml(yamlPath);
@@ -109,6 +123,11 @@ public class Api {
         return getResponseFromApi(restful,tokenPattern);
     }
 
+    /**
+     * 判断字符串中是否都是数字
+     * @param str
+     * @return
+     */
     public static boolean isNumeric(String str) {
         //如果是数字，创建new BigDecimal()时肯定不会报错，那就可以直接返回true
         //BigDecimal value = new BigDecimal(oldValue);可以把科学记数法转换为普通数字表示
@@ -119,4 +138,6 @@ public class Api {
         }
         return true;
     }
+
+
 }

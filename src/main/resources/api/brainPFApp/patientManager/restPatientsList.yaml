@@ -1,0 +1,3 @@
+#根据患者列表查询条件查询已创建的患者
+url: http://ijixin.com/brain/rest/patients
+method: post

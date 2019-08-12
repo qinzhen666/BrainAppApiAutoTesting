@@ -13,7 +13,7 @@ public class ApiConfig {
 
     public static ApiConfig getInstance(){
         if (apiConfig == null){
-            apiConfig = load("/data/brainPFApiEnvConfig.yaml");
+            apiConfig = load("/confg/brainPFApiEnvConfig.yaml");
         }
         return apiConfig;
     }
