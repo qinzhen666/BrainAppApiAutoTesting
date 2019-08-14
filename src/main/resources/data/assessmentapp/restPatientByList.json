@@ -2,13 +2,13 @@
   "educationTime": "",
   "jobType": "",
   "marrige": "",
-  "medicalHistory": 0,
+  "medicalHistory": -1,
   "medicationName": "",
   "orderBy": "",
   "pageNumber": 0,
   "pageSize": 100,
   "patientAge": "",
   "patientName": "",
-  "patientSex": 0,
+  "patientSex": -1,
   "sortKey": ""
 }

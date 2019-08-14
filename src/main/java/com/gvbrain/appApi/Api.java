@@ -6,10 +6,11 @@ import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import static org.hamcrest.Matchers.equalTo;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Random;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.useRelaxedHTTPSValidation;
@@ -26,6 +27,8 @@ public class Api {
         RequestSpecification requestSpecification = given().log().all();
         return requestSpecification;
     }
+
+
 
     //加载json文件，对body值进行修改
     public String loadJsonBody(String jsonPath, HashMap<String,Object> map){

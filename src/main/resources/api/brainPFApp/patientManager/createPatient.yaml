@@ -1,0 +1,3 @@
+#新增患者档案
+url: https://ijixin.com/brain/rest/patient/insert
+method: post
