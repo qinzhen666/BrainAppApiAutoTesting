@@ -1,0 +1,3 @@
+#删除自定义测评方案
+url: https://ijixin.com/brain/rest/assessmentPlan/delete
+method: get

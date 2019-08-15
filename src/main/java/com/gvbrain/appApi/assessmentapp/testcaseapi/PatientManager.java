@@ -28,7 +28,7 @@ public class PatientManager extends ApiToken {
     }
 
     public Response getPatientInfoByList(HashMap<String,Object> map){
-        map.put("_file", "/data/assessmentapp/restPatientByList.json");
+        map.put("_file", "/data/assessmentapp/patientManager/restPatientByList.json");
         return getResponseFromYaml(
                 "/api/brainPFApp/patientManager/restPatientsList.yaml",
                 map,
@@ -38,7 +38,7 @@ public class PatientManager extends ApiToken {
 
     public Response getAllPatientInfoByList(){
         HashMap<String,Object> map = new HashMap<>();
-        map.put("_file","/data/assessmentapp/restPatientByList.json");
+        map.put("_file", "/data/assessmentapp/patientManager/restPatientByList.json");
         return getResponseFromYaml(
                 "/api/brainPFApp/patientManager/restPatientsList.yaml",
                 map,
@@ -47,7 +47,7 @@ public class PatientManager extends ApiToken {
     }
 
     public Response createPatient(HashMap<String,Object> map){
-        map.put("_file","/data/assessmentapp/createPatient.json");
+        map.put("_file", "/data/assessmentapp/patientManager/createPatient.json");
         return getResponseFromYaml(
                 "/api/brainPFApp/patientManager/createPatient.yaml",
                 map,
@@ -64,7 +64,7 @@ public class PatientManager extends ApiToken {
      * @return
      */
     public Response updatePatient(HashMap<String,Object> map){
-        map.put("_file","/data/assessmentapp/updatePatient.json");
+        map.put("_file", "/data/assessmentapp/patientManager/updatePatient.json");
         return getResponseFromYaml(
                 "/api/brainPFApp/patientManager/updatePatient.yaml",
                 map,

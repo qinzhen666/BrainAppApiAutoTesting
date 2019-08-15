@@ -1,8 +1,8 @@
 package com.gvbrain.appApi.Utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
-
-import static com.sun.tools.doclint.Entity.or;
 
 
 public class RandomValueUtil {
@@ -146,5 +146,22 @@ public class RandomValueUtil {
         }
         String BirthDate = year + "-" + month + "-" + day;
         return BirthDate;
+    }
+
+    public static String getRandomAssessmentPlanDescribe(){
+        return "方案描述" + getRandomAlphabet(4);
+    }
+
+    public static String getRandomAssessmentPlanName(){
+        return "方案名称" + getRandomAlphabet(4);
+    }
+
+    public static List<Integer> getRandomAssessmentUidList(){
+        int n = getNum(1,8);
+        List<Integer> uidList = new ArrayList<>();
+        for (int i = 0; i < n; i++){
+            uidList.add(getNum(1,8));
+        }
+        return uidList;
     }
 }
