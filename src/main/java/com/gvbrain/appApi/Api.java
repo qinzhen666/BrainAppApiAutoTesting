@@ -8,6 +8,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -65,6 +66,12 @@ public class Api {
             if (map.containsKey("_body")){
                 restful.body = map.get("_body").toString();
             }
+            if (map.containsKey("_postPara")){
+                map.remove("_postPara");
+                map.entrySet().forEach(entry->{
+                    restful.query.put(entry.getKey(),entry.getValue());
+                });
+            }
             if (map.containsKey("_file")){
                 String filePath = map.get("_file").toString();
                 map.remove("_file");
@@ -78,9 +85,18 @@ public class Api {
         RequestSpecification requestSpecification = getDefaultRequestSpecification(tokenPattern);
         //设置请求参数
         if (restful.query != null){
-            restful.query.entrySet().forEach(entry->{
-                requestSpecification.queryParam(entry.getKey(),entry.getValue());
-            });
+            if (restful.query.get("_multiPath") != null){//判断是否需要上传文件
+                String multiPath = (String) restful.query.get("_multiPath");
+                restful.query.remove("_multiPath");
+                restful.query.entrySet().forEach(entry->{
+                    requestSpecification.queryParam(entry.getKey(),entry.getValue());
+                });
+                requestSpecification.contentType("multipart/form-data").multiPart("file",new File(multiPath));
+            }else {
+                restful.query.entrySet().forEach(entry->{
+                    requestSpecification.queryParam(entry.getKey(),entry.getValue());
+                });
+            }
         }
         if (restful.body != null){
             requestSpecification.body(restful.body);
