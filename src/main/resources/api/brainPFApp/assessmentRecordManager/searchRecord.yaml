@@ -1,0 +1,3 @@
+#查询测评报告
+url: http://ijixin.com/brain/rest/assessmentRecord
+method: get

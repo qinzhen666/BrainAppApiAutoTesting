@@ -33,7 +33,7 @@ public class AssessmentPlanManager extends ApiToken {
         map.put("assessmentPlanDescribe",assessmentPlanDescribe);
         map.put("assessmentPlanName",assessmentPlanName);
         map.put("items",items);
-        map.put("_file","/data/assessmentapp/assessmentPlanManager/createAssessmentPlan.json");
+        map.put("_file", "/data/assessmentapp/assessmentPlanManager/createPlan.json");
         return getResponseFromYaml(
                 "/api/brainPFApp/assessmentPlanManager/createAssessmentPlan.yaml",
                 map,
@@ -84,7 +84,7 @@ public class AssessmentPlanManager extends ApiToken {
         map.put("assessmentPlanName",assessmentPlanName);
         map.put("items",items);
         map.put("uid",uid);
-        map.put("_file","/data/assessmentapp/assessmentPlanManager/updateAssessmentPlan.json");
+        map.put("_file", "/data/assessmentapp/assessmentPlanManager/updatePlan.json");
         return getResponseFromYaml(
                 "/api/brainPFApp/assessmentPlanManager/updateAssessmentPlan.yaml",
                 map,

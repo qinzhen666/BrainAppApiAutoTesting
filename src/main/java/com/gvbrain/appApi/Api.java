@@ -6,6 +6,8 @@ import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.apache.commons.io.IOUtils;
+import io.restassured.builder.MultiPartSpecBuilder;
 import static org.hamcrest.Matchers.equalTo;
 
 import java.io.File;
@@ -87,11 +89,16 @@ public class Api {
         if (restful.query != null){
             if (restful.query.get("_multiPath") != null){//判断是否需要上传文件
                 String multiPath = (String) restful.query.get("_multiPath");
-                restful.query.remove("_multiPath");
-                restful.query.entrySet().forEach(entry->{
-                    requestSpecification.queryParam(entry.getKey(),entry.getValue());
-                });
-                requestSpecification.contentType("multipart/form-data").multiPart("file",new File(multiPath));
+                try {
+                    final byte[] bytes = IOUtils.toByteArray(getClass().getResourceAsStream(multiPath));
+                    restful.query.remove("_multiPath");
+                    restful.query.entrySet().forEach(entry->{
+                        requestSpecification.queryParam(entry.getKey(),entry.getValue());
+                    });
+                    requestSpecification.contentType("multipart/form-data").multiPart("file", "myFile", bytes);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }else {
                 restful.query.entrySet().forEach(entry->{
                     requestSpecification.queryParam(entry.getKey(),entry.getValue());

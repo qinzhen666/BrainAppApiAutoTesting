@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.*;
 
 class AssessmentPlanManagerTest {
@@ -62,7 +64,9 @@ class AssessmentPlanManagerTest {
         //查询方案是否创建成功,检查自定义方案中是否包含已创建的方案
         assessmentPlanManager.getAssessmentPlan().then().statusCode(200)
                 .body("status",equalTo("1"))
-                .body("body.uid",hasItem(uid));
+                .body("body.uid",hasItem(uid))
+                .body(matchesJsonSchemaInClasspath("responseSchema/assessmentapp/assessmentPlanManager/createPlan.schema"));
+
     }
 
     @Test
@@ -132,6 +136,7 @@ class AssessmentPlanManagerTest {
                 .body("body.uid",equalTo(uid))
                 .body("body.assessmentPlanDescribe",equalTo(assessmentPlanDescribe))
                 .body("body.assessmentPlanName",equalTo(assessmentPlanName))
+                .body(matchesJsonSchemaInClasspath("responseSchema/assessmentapp/assessmentPlanManager/updatePlan.schema"))
                 .extract().path("body.assessmentItems.uid");
         assUids.forEach(key->{
             System.out.println("assUid======"+key);

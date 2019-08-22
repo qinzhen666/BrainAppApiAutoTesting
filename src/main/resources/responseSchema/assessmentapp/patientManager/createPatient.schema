@@ -1,0 +1,414 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "status",
+    "message",
+    "body"
+  ],
+  "properties": {
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "操作成功"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "object",
+      "title": "The Body Schema",
+      "items": {
+        "$id": "#/properties/body/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "medicalHistoryType",
+          "patient"
+        ],
+        "properties": {
+          "medicalHistoryType": {
+            "$id": "#/properties/body/items/properties/medicalHistoryType",
+            "type": "array",
+            "title": "The Medicalhistorytype Schema",
+            "items": {
+              "$id": "#/properties/body/items/properties/medicalHistoryType/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "uid",
+                "medications",
+                "medicalHistoryName",
+                "medicalHistoryIdentify",
+                "medicalHistoryDegree",
+                "medicalHistoryDescribe",
+                "createTime"
+              ],
+              "properties": {
+                "uid": {
+                  "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/uid",
+                  "type": "integer",
+                  "title": "The Uid Schema",
+                  "default": 0,
+                  "examples": [
+                    697
+                  ]
+                },
+                "medications": {
+                  "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications",
+                  "type": "array",
+                  "title": "The Medications Schema",
+                  "items": {
+                    "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications/items",
+                    "type": "object",
+                    "title": "The Items Schema",
+                    "required": [
+                      "uid",
+                      "medicationName",
+                      "medicationDegree",
+                      "medicationStartTime",
+                      "medicationEndTime",
+                      "status",
+                      "reason"
+                    ],
+                    "properties": {
+                      "uid": {
+                        "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications/items/properties/uid",
+                        "type": "integer",
+                        "title": "The Uid Schema",
+                        "default": 0,
+                        "examples": [
+                          2321
+                        ]
+                      },
+                      "medicationName": {
+                        "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications/items/properties/medicationName",
+                        "type": "string",
+                        "title": "The Medicationname Schema",
+                        "default": "",
+                        "examples": [
+                          "多奈哌齐"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "medicationDegree": {
+                        "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications/items/properties/medicationDegree",
+                        "type": "integer",
+                        "title": "The Medicationdegree Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "medicationStartTime": {
+                        "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications/items/properties/medicationStartTime",
+                        "type": "null",
+                        "title": "The Medicationstarttime Schema",
+                        "default": null,
+                        "examples": [
+                          null
+                        ]
+                      },
+                      "medicationEndTime": {
+                        "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications/items/properties/medicationEndTime",
+                        "type": "null",
+                        "title": "The Medicationendtime Schema",
+                        "default": null,
+                        "examples": [
+                          null
+                        ]
+                      },
+                      "status": {
+                        "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications/items/properties/status",
+                        "type": "integer",
+                        "title": "The Status Schema",
+                        "default": 0,
+                        "examples": [
+                          -1
+                        ]
+                      },
+                      "reason": {
+                        "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medications/items/properties/reason",
+                        "type": "null",
+                        "title": "The Reason Schema",
+                        "default": null,
+                        "examples": [
+                          null
+                        ]
+                      }
+                    }
+                  }
+                },
+                "medicalHistoryName": {
+                  "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medicalHistoryName",
+                  "type": "string",
+                  "title": "The Medicalhistoryname Schema",
+                  "default": "",
+                  "examples": [
+                    "是否确诊为脑年痴呆"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "medicalHistoryIdentify": {
+                  "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medicalHistoryIdentify",
+                  "type": "integer",
+                  "title": "The Medicalhistoryidentify Schema",
+                  "default": 0,
+                  "examples": [
+                    0
+                  ]
+                },
+                "medicalHistoryDegree": {
+                  "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medicalHistoryDegree",
+                  "type": "integer",
+                  "title": "The Medicalhistorydegree Schema",
+                  "default": 0,
+                  "examples": [
+                    1
+                  ]
+                },
+                "medicalHistoryDescribe": {
+                  "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/medicalHistoryDescribe",
+                  "type": "null",
+                  "title": "The Medicalhistorydescribe Schema",
+                  "default": null,
+                  "examples": [
+                    null
+                  ]
+                },
+                "createTime": {
+                  "$id": "#/properties/body/items/properties/medicalHistoryType/items/properties/createTime",
+                  "type": "string",
+                  "title": "The Createtime Schema",
+                  "default": "",
+                  "examples": [
+                    "2019-08-21 16:45:12"
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              }
+            }
+          },
+          "patient": {
+            "$id": "#/properties/body/items/properties/patient",
+            "type": "object",
+            "title": "The Patient Schema",
+            "required": [
+              "uid",
+              "patientName",
+              "patientSex",
+              "patientAge",
+              "mobilephone",
+              "localPhone",
+              "takeName",
+              "takeRelation",
+              "patientBirthdate",
+              "marrige",
+              "jobType",
+              "education",
+              "educationTime",
+              "address",
+              "status",
+              "patientIdnumber",
+              "createTime",
+              "updateTime"
+            ],
+            "properties": {
+              "uid": {
+                "$id": "#/properties/body/items/properties/patient/properties/uid",
+                "type": "integer",
+                "title": "The Uid Schema",
+                "default": 0,
+                "examples": [
+                  203
+                ]
+              },
+              "patientName": {
+                "$id": "#/properties/body/items/properties/patient/properties/patientName",
+                "type": "string",
+                "title": "The Patientname Schema",
+                "default": "",
+                "examples": [
+                  "裘柔瑗"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "patientSex": {
+                "$id": "#/properties/body/items/properties/patient/properties/patientSex",
+                "type": "integer",
+                "title": "The Patientsex Schema",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "patientAge": {
+                "$id": "#/properties/body/items/properties/patient/properties/patientAge",
+                "type": "integer",
+                "title": "The Patientage Schema",
+                "default": 0,
+                "examples": [
+                  97
+                ]
+              },
+              "mobilephone": {
+                "$id": "#/properties/body/items/properties/patient/properties/mobilephone",
+                "type": "string",
+                "title": "The Mobilephone Schema",
+                "default": "",
+                "examples": [
+                  "18752719745"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "localPhone": {
+                "$id": "#/properties/body/items/properties/patient/properties/localPhone",
+                "type": "string",
+                "title": "The Localphone Schema",
+                "default": "",
+                "examples": [
+                  ""
+                ],
+                "pattern": "^(.*)$"
+              },
+              "takeName": {
+                "$id": "#/properties/body/items/properties/patient/properties/takeName",
+                "type": "string",
+                "title": "The Takename Schema",
+                "default": "",
+                "examples": [
+                  ""
+                ],
+                "pattern": "^(.*)$"
+              },
+              "takeRelation": {
+                "$id": "#/properties/body/items/properties/patient/properties/takeRelation",
+                "type": "string",
+                "title": "The Takerelation Schema",
+                "default": "",
+                "examples": [
+                  ""
+                ],
+                "pattern": "^(.*)$"
+              },
+              "patientBirthdate": {
+                "$id": "#/properties/body/items/properties/patient/properties/patientBirthdate",
+                "type": "string",
+                "title": "The Patientbirthdate Schema",
+                "default": "",
+                "examples": [
+                  "1922-03-02"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "marrige": {
+                "$id": "#/properties/body/items/properties/patient/properties/marrige",
+                "type": "string",
+                "title": "The Marrige Schema",
+                "default": "",
+                "examples": [
+                  "已婚"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "jobType": {
+                "$id": "#/properties/body/items/properties/patient/properties/jobType",
+                "type": "string",
+                "title": "The Jobtype Schema",
+                "default": "",
+                "examples": [
+                  "专业技术人员"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "education": {
+                "$id": "#/properties/body/items/properties/patient/properties/education",
+                "type": "string",
+                "title": "The Education Schema",
+                "default": "",
+                "examples": [
+                  "小学肄业"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "educationTime": {
+                "$id": "#/properties/body/items/properties/patient/properties/educationTime",
+                "type": "integer",
+                "title": "The Educationtime Schema",
+                "default": 0,
+                "examples": [
+                  2
+                ]
+              },
+              "address": {
+                "$id": "#/properties/body/items/properties/patient/properties/address",
+                "type": "string",
+                "title": "The Address Schema",
+                "default": "",
+                "examples": [
+                  "上海市浦东新区张江镇"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "status": {
+                "$id": "#/properties/body/items/properties/patient/properties/status",
+                "type": "integer",
+                "title": "The Status Schema",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "patientIdnumber": {
+                "$id": "#/properties/body/items/properties/patient/properties/patientIdnumber",
+                "type": "string",
+                "title": "The Patientidnumber Schema",
+                "default": "",
+                "examples": [
+                  ""
+                ],
+                "pattern": "^(.*)$"
+              },
+              "createTime": {
+                "$id": "#/properties/body/items/properties/patient/properties/createTime",
+                "type": "string",
+                "title": "The Createtime Schema",
+                "default": "",
+                "examples": [
+                  "2019-08-21"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "updateTime": {
+                "$id": "#/properties/body/items/properties/patient/properties/updateTime",
+                "type": "string",
+                "title": "The Updatetime Schema",
+                "default": "",
+                "examples": [
+                  "2019-08-21"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

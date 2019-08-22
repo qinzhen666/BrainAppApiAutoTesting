@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -50,15 +51,18 @@ class patientManagerTest {
         String phoneNumber = randomValueUtil.getRandomPhoneNumber();
         String patientBirthDate = randomValueUtil.getRandomBirthDate();
         Integer educationTime = randomValueUtil.getNum(0,22);
-        HashMap<String,Object> map = new CreatePatient.UpdatePatientBuilder()
+        CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
                 .buildPatientBirthdate(patientBirthDate)
                 .buildEducationTime(educationTime)
                 .buildAddress("上海市浦东新区张江镇")
                 .buildPatient();
+        HashMap<String, Object> map = buildPatient.getMap();
         System.out.println(map);
-        patientManager.createPatient(map).then().statusCode(200).body("status",equalTo("1"));
+        patientManager.createPatient(map).then().statusCode(200)
+                .body("status",equalTo("1"))
+                .body(matchesJsonSchemaInClasspath("responseSchema/assessmentapp/patientManager/createPatient.schema"));
     }
 
     /**
@@ -71,13 +75,14 @@ class patientManagerTest {
         String phoneNumber = randomValueUtil.getRandomPhoneNumber();
         String patientBirthDate = randomValueUtil.getRandomBirthDate();
         Integer educationTime = randomValueUtil.getNum(0,22);
-        HashMap<String,Object> map = new CreatePatient.UpdatePatientBuilder()
+        CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
                 .buildPatientBirthdate(patientBirthDate)
                 .buildEducationTime(educationTime)
                 .buildAddress("上海市浦东新区张江镇")
                 .buildPatient();
+        HashMap<String, Object> map = buildPatient.getMap();
         System.out.println(map);
         patientManager.createPatient(map).then().statusCode(200).body("status",equalTo("1"));
         //查询查询患者信息，检查是否创建成功
@@ -101,13 +106,14 @@ class patientManagerTest {
         String phoneNumber = randomValueUtil.getRandomPhoneNumber();
         String patientBirthDate = randomValueUtil.getRandomBirthDate();
         Integer educationTime = randomValueUtil.getNum(0,22);
-        HashMap<String,Object> map = new CreatePatient.UpdatePatientBuilder()
+        CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
                 .buildPatientBirthdate(patientBirthDate)
                 .buildEducationTime(educationTime)
                 .buildAddress("上海市浦东新区张江镇")
                 .buildPatient();
+        HashMap<String, Object> map = buildPatient.getMap();
         //获取创建患者的病例uid和基本信息uid
         String response = patientManager.createPatient(map).asString();
         Integer uidOne = from(response).getInt("body.medicalHistoryType.uid[0]");
@@ -145,13 +151,14 @@ class patientManagerTest {
         String phoneNumber = randomValueUtil.getRandomPhoneNumber();
         String patientBirthDate = randomValueUtil.getRandomBirthDate();
         Integer educationTime = randomValueUtil.getNum(0,22);
-        HashMap<String,Object> map = new CreatePatient.UpdatePatientBuilder()
+        CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
                 .buildPatientBirthdate(patientBirthDate)
                 .buildEducationTime(educationTime)
                 .buildAddress("上海市浦东新区张江镇")
                 .buildPatient();
+        HashMap<String, Object> map = buildPatient.getMap();
         //获取创建患者的病例uid和基本信息uid
         String response = patientManager.createPatient(map).asString();
         Integer uidOne = from(response).getInt("body.medicalHistoryType.uid[0]");
@@ -183,13 +190,14 @@ class patientManagerTest {
         String phoneNumber = randomValueUtil.getRandomPhoneNumber();
         String patientBirthDate = randomValueUtil.getRandomBirthDate();
         Integer educationTime = randomValueUtil.getNum(0,22);
-        HashMap<String,Object> map = new CreatePatient.UpdatePatientBuilder()
+        CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
                 .buildPatientBirthdate(patientBirthDate)
                 .buildEducationTime(educationTime)
                 .buildAddress("上海市浦东新区张江镇")
                 .buildPatient();
+        HashMap<String, Object> map = buildPatient.getMap();
         //获取创建患者的uid
         Integer uid = patientManager.createPatient(map).then().statusCode(200).extract().path("body.patient.uid");
         //删除患者

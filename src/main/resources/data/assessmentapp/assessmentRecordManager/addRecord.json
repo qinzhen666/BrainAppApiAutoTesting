@@ -1,0 +1,40 @@
+{
+  "biaoNameList": [],
+  "error": 0,
+  "okTime": "1566439505726",
+  "personBean": {
+    "address": "上海市上海市黄浦区",
+    "createTime": "2019-08-22",
+    "education": "初中",
+    "educationTime": 2,
+    "jobType": "工人",
+    "localPhone": "",
+    "marrige": "分居",
+    "mobilephone": "15699998989",
+    "patientAge": 64,
+    "patientBirthdate": "1955-01-01",
+    "patientIdnumber": "",
+    "patientName": "j",
+    "patientSex": 1,
+    "takeName": "",
+    "takeRelation": "",
+    "uid": 230
+  },
+  "planId": "189",
+  "planName": "3",
+  "sonAnwserBeans": [{
+    "baogPicPath": "/storage/emulated/0/atman/1566439508415.jpg",
+    "baogUrl": "",
+    "cepBean": {
+      "assessmentDescribe": "筛查视空间知觉障碍",
+      "assessmentName": "CDT4（画钟测验）",
+      "duration": "3",
+      "name": null,
+      "normalScore": "＝4分",
+      "testId": "CDT",
+      "uid": "3"
+    },
+    "currentScore": 3
+  }],
+  "total": 1
+}

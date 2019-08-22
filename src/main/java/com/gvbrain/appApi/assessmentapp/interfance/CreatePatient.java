@@ -7,7 +7,7 @@ import java.util.HashMap;
 @Data
 public class CreatePatient {
 
-    private HashMap<String,Object> address;
+    /*private HashMap<String,Object> address;
     private HashMap<String,Object> education;
     private HashMap<String,Object> educationTime;
     private HashMap<String,Object> jobType;
@@ -16,68 +16,81 @@ public class CreatePatient {
     private HashMap<String,Object> patientAge;
     private HashMap<String,Object> patientBirthdate;
     private HashMap<String,Object> patientName;
-    private HashMap<String,Object> patientSex;
+    private HashMap<String,Object> patientSex;*/
+    private HashMap<String,Object> map;
 
-    public static class UpdatePatientBuilder {
-        HashMap<String,Object> map = new HashMap<>();
 
-        /*private CreatePatient createPatient;
+    public static class CreatePatientBuilder {
+        HashMap<String,Object> map1 = new HashMap<>();
+
+        private CreatePatient createPatient;
         public CreatePatientBuilder(){
             createPatient = new CreatePatient();
-        }*/
+        }
 
-        public UpdatePatientBuilder buildEducation(String education){
-            map.put("$.patient.education",education);
+        public CreatePatientBuilder buildEducation(String education){
+            map1.put("$.patient.education",education);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildEducationTime(Integer educationTime){
-            map.put("$.patient.educationTime",educationTime);
+        public CreatePatientBuilder buildEducationTime(Integer educationTime){
+            map1.put("$.patient.educationTime",educationTime);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildJobType(String jobType){
-            map.put("$.patient.jobType",jobType);
+        public CreatePatientBuilder buildJobType(String jobType){
+            map1.put("$.patient.jobType",jobType);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildMarrige(String marrige){
-            map.put("$.patient.marrige",marrige);
+        public CreatePatientBuilder buildMarrige(String marrige){
+            map1.put("$.patient.marrige",marrige);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildMobilePhone(String mobilePhone){
-            map.put("$.patient.mobilephone",mobilePhone);
+        public CreatePatientBuilder buildMobilePhone(String mobilePhone){
+            map1.put("$.patient.mobilephone",mobilePhone);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildPatientAge(Integer patientAge){
-            map.put("$.patient.patientAge",patientAge);
+        public CreatePatientBuilder buildPatientAge(Integer patientAge){
+            map1.put("$.patient.patientAge",patientAge);
+            createPatient.setMap(map1);
+            return this;
+
+        }
+
+        public CreatePatientBuilder buildPatientBirthdate(String patientBirthdate){
+            map1.put("$.patient.patientBirthdate",patientBirthdate);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildPatientBirthdate(String patientBirthdate){
-            map.put("$.patient.patientBirthdate",patientBirthdate);
+        public CreatePatientBuilder buildPatientName(String patientName){
+            map1.put("$.patient.patientName",patientName);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildPatientName(String patientName){
-            map.put("$.patient.patientName",patientName);
+        public CreatePatientBuilder buildAddress(String address){
+            map1.put("$.patient.address",address);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildAddress(String address){
-            map.put("$.patient.address",address);
+        public CreatePatientBuilder buildPatientSex(Integer patientSex){
+            map1.put("$.patient.patientSex",patientSex);
+            createPatient.setMap(map1);
             return this;
         }
 
-        public UpdatePatientBuilder buildPatientSex(Integer patientSex){
-            map.put("$.patient.patientSex",patientSex);
-            return this;
-        }
-
-        public HashMap<String,Object> buildPatient(){
-            return map;
+        public CreatePatient buildPatient(){
+            return createPatient;
         }
     }
 
