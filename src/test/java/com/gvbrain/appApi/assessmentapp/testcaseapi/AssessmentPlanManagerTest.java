@@ -5,10 +5,16 @@ import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -46,6 +52,29 @@ class AssessmentPlanManagerTest {
     }
 
     /**
+     * 方案名、方案描述、测评量表必填项校验
+     * @param PlanDescribe
+     * @param PlanName
+     * @param items
+     * @param expeCode
+     * @param expeMessage
+     */
+    @ParameterizedTest
+    @MethodSource("createPlanInfoProvider")
+    void createPlanFail(String PlanDescribe,String PlanName,List items,String expeCode,String expeMessage){
+        assessmentPlanManager.createAssessmentPlan(PlanDescribe,PlanName,items).then().statusCode(200)
+                .body("status",equalTo(expeCode))
+                .body("message",equalTo(expeMessage));
+    }
+    static Stream<Arguments> createPlanInfoProvider(){
+        return Stream.of(
+                Arguments.of("", "test方案名", Arrays.asList(1,2),"0","测评方案描述不能为空;"),
+                Arguments.of("test方案描述", "", Arrays.asList(1,2),"0","测评方案名称不能为空;"),
+                Arguments.of("test方案描述", "test方案名", null, "0", "测评项目UID集合不能NULL;")
+        );
+    }
+
+    /**
      * 查询当前登陆用户的自定义测评方案
      * @return
      */
@@ -66,9 +95,12 @@ class AssessmentPlanManagerTest {
                 .body("status",equalTo("1"))
                 .body("body.uid",hasItem(uid))
                 .body(matchesJsonSchemaInClasspath("responseSchema/assessmentapp/assessmentPlanManager/createPlan.schema"));
-
     }
 
+
+    /**
+     * 删除方案并确保删除后的方案不存在与查询结果中
+     */
     @Test
     void deleteAssessmentPlan(){
         Integer uid = createPlanGetUid();

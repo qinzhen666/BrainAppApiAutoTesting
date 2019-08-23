@@ -3,8 +3,11 @@ package com.gvbrain.appApi.assessmentapp.testcaseapi;
 import com.gvbrain.appApi.Utils.RandomValueUtil;
 import com.gvbrain.appApi.assessmentapp.interfance.AddRecord;
 import com.gvbrain.appApi.assessmentapp.interfance.CreatePatient;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +22,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class AssessmentRecordManagerTest {
 
     AssessmentRecordManager assessmentRecordManager;
+    RandomValueUtil randomValueUtil = new RandomValueUtil();
+
+    @BeforeAll
+    static void beforeAll(){
+        PatientManager patientManager = new PatientManager();
+        patientManager.deleteAllPatients();
+    }
 
     @BeforeEach
     void setup(){
@@ -27,6 +37,9 @@ class AssessmentRecordManagerTest {
         }
     }
 
+    /**
+     * 上传报告图片
+     */
     @Test
     void uploadFile() {
         String filePath = "/data/assessmentapp/assessmentRecordManager/CTD4.jpg";
@@ -93,5 +106,26 @@ class AssessmentRecordManagerTest {
                 .body("body[0].personBean.patientBirthdate",equalTo(patientBirthDate))
                 .body("body[0].sonAnwserBeans[0].baogUrl",equalTo(baogUrl))
                 .body(matchesJsonSchemaInClasspath("responseSchema/assessmentapp/recordManager/searchRecord.schema"));
+    }
+
+
+    @ParameterizedTest
+    @CsvSource({
+            " , test患者,  252, testbaogUrl, 0, 测评时间不能为空;",
+            "1566439505726, ,  252, testbaogUrl, 0, 患者姓名不能为空;",
+            "1566439505726, test患者,  , testbaogUrl, 0, 测评方案编号不能为空;",
+            "1566439505726, test患者,  252, , 0, 报告图片地址不能为空;"
+    })
+    void addRecordFail(Long okTime,String patientName,String planUid,String baogUrl,String expecStatus,String expecMessage){
+        //生成测评报告
+        HashMap<String,Object> recordMap = new AddRecord()
+                .buildOkTime(okTime)
+                .buildPatientName(patientName)
+                .buildPlanId(planUid)
+                .buildBaoGUrl(baogUrl).buildRecord();
+        //新增测评报告
+        assessmentRecordManager.addRecord(recordMap).then().statusCode(200)
+                .body("status",equalTo(expecStatus))
+                .body("message",equalTo(expecMessage));
     }
 }
