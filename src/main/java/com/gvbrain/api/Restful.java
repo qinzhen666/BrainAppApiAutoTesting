@@ -1,4 +1,4 @@
-package com.gvbrain.appApi;
+package com.gvbrain.api;
 import java.util.HashMap;
 
 public class Restful {

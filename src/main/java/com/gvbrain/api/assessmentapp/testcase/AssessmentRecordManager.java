@@ -1,9 +1,8 @@
-package com.gvbrain.appApi.assessmentapp.testcaseapi;
+package com.gvbrain.api.assessmentapp.testcase;
 
-import com.gvbrain.appApi.ApiToken;
+import com.gvbrain.api.ApiToken;
 import io.restassured.response.Response;
 
-import java.io.File;
 import java.util.HashMap;
 
 public class AssessmentRecordManager extends ApiToken {
@@ -21,7 +20,7 @@ public class AssessmentRecordManager extends ApiToken {
         map.put("sequence","0");
         map.put("_multiPath",filePath);
         return getResponseFromYaml(
-                "/api/brainPFApp/assessmentRecordManager/uploadPic.yaml",
+                "/api/assessmentapp/assessmentRecordManager/uploadPic.yaml",
                 map,
                 tokenPattern
         );
@@ -31,9 +30,9 @@ public class AssessmentRecordManager extends ApiToken {
      * 新增测评报告
      */
     public Response addRecord(HashMap<String,Object> map){
-        map.put("_file","/data/assessmentapp/assessmentRecordManager/addRecord.json");
+        map.put("_file", "/data/assessmentapp/assessmentRecordManager/addRecord.json");
         return getResponseFromYaml(
-                "/api/brainPFApp/assessmentRecordManager/addRecord.yaml",
+                "/api/assessmentapp/assessmentRecordManager/addRecord.yaml",
                 map,
                 tokenPattern
         );
@@ -47,7 +46,7 @@ public class AssessmentRecordManager extends ApiToken {
         map.put("patientUid",patientUid);
         map.put("pageNumber",0);
         return getResponseFromYaml(
-                "/api/brainPFApp/assessmentRecordManager/searchRecord.yaml",
+                "/api/assessmentapp/assessmentRecordManager/searchRecord.yaml",
                 map,
                 tokenPattern
         );

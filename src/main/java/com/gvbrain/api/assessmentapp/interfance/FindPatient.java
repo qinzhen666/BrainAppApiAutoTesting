@@ -1,4 +1,4 @@
-package com.gvbrain.appApi.assessmentapp.interfance;
+package com.gvbrain.api.assessmentapp.interfance;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.gvbrain.appApi.assessmentapp.testcaseapi;
+package com.gvbrain.api.assessmentapp.testcase;
 
-import com.gvbrain.appApi.ApiToken;
+import com.gvbrain.api.ApiToken;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public class PatientManager extends ApiToken {
         map.put("patientName",patientName);
         map.put("mobilephone",mobilePhone);
         return getResponseFromYaml(
-                "/api/brainPFApp/patientManager/restPatientsNamePhone.yaml",
+                "/api/assessmentapp/patientManager/restPatientsNamePhone.yaml",
                 map,
                 tokenPattern
         );
@@ -30,7 +30,7 @@ public class PatientManager extends ApiToken {
     public Response getPatientInfoByList(HashMap<String,Object> map){
         map.put("_file", "/data/assessmentapp/patientManager/restPatientByList.json");
         return getResponseFromYaml(
-                "/api/brainPFApp/patientManager/restPatientsList.yaml",
+                "/api/assessmentapp/patientManager/restPatientsList.yaml",
                 map,
                 tokenPattern
         );
@@ -40,7 +40,7 @@ public class PatientManager extends ApiToken {
         HashMap<String,Object> map = new HashMap<>();
         map.put("_file", "/data/assessmentapp/patientManager/restPatientByList.json");
         return getResponseFromYaml(
-                "/api/brainPFApp/patientManager/restPatientsList.yaml",
+                "/api/assessmentapp/patientManager/restPatientsList.yaml",
                 map,
                 tokenPattern
         );
@@ -49,7 +49,7 @@ public class PatientManager extends ApiToken {
     public Response createPatient(HashMap<String,Object> map){
         map.put("_file", "/data/assessmentapp/patientManager/createPatient.json");
         return getResponseFromYaml(
-                "/api/brainPFApp/patientManager/createPatient.yaml",
+                "/api/assessmentapp/patientManager/createPatient.yaml",
                 map,
                 tokenPattern
         );
@@ -66,7 +66,7 @@ public class PatientManager extends ApiToken {
     public Response updatePatient(HashMap<String,Object> map){
         map.put("_file", "/data/assessmentapp/patientManager/updatePatient.json");
         return getResponseFromYaml(
-                "/api/brainPFApp/patientManager/updatePatient.yaml",
+                "/api/assessmentapp/patientManager/updatePatient.yaml",
                 map,
                 tokenPattern
         );
@@ -76,7 +76,7 @@ public class PatientManager extends ApiToken {
         HashMap<String,Object> map = new HashMap<>();
         map.put("uid",uid);
         return getResponseFromYaml(
-                "/api/brainPFApp/patientManager/deletePatient.yaml",
+                "/api/assessmentapp/patientManager/deletePatient.yaml",
                 map,
                 tokenPattern
         );

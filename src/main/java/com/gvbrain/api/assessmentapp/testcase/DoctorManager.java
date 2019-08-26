@@ -1,6 +1,6 @@
-package com.gvbrain.appApi.assessmentapp.testcaseapi;
+package com.gvbrain.api.assessmentapp.testcase;
 
-import com.gvbrain.appApi.ApiToken;
+import com.gvbrain.api.ApiToken;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
@@ -14,7 +14,7 @@ public class DoctorManager extends ApiToken {
      */
     public Response getDoctorInfo(){
         return getResponseFromYaml(
-                "/api/brainPFApp/doctorManager/restDoctor.yaml",
+                "/api/assessmentapp/doctorManager/restDoctor.yaml",
                 null,
                 tokenPattern
                 );
@@ -28,9 +28,9 @@ public class DoctorManager extends ApiToken {
         map.put("currentPassword",currentPassword);
         map.put("newPassword",newPassword);
         map.put("renewPassword",renewPassword);
-        map.put("_file","/data/assessmentapp/assessmentPlanManager/changePassword.json");
+        map.put("_file", "/data/assessmentapp/assessmentPlanManager/changePassword.json");
         return getResponseFromYaml(
-                "/api/brainPFApp/doctorManager/changePassword.yaml",
+                "/api/assessmentapp/doctorManager/changePassword.yaml",
                 map,
                 tokenPattern
         );
@@ -46,7 +46,7 @@ public class DoctorManager extends ApiToken {
                 "}" , feedBackInfo));
         System.out.println(map);
         return getResponseFromYaml(
-                "/api/brainPFApp/doctorManager/feedBack.yaml",
+                "/api/assessmentapp/doctorManager/feedBack.yaml",
                 map,tokenPattern
         );
     }

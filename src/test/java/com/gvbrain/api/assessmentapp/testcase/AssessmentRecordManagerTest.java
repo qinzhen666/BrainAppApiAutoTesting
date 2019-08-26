@@ -1,8 +1,8 @@
-package com.gvbrain.appApi.assessmentapp.testcaseapi;
+package com.gvbrain.api.assessmentapp.testcase;
 
-import com.gvbrain.appApi.Utils.RandomValueUtil;
-import com.gvbrain.appApi.assessmentapp.interfance.AddRecord;
-import com.gvbrain.appApi.assessmentapp.interfance.CreatePatient;
+import com.gvbrain.api.Utils.RandomValueUtil;
+import com.gvbrain.api.assessmentapp.interfance.AddRecord;
+import com.gvbrain.api.assessmentapp.interfance.CreatePatient;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,6 @@ import java.util.List;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AssessmentRecordManagerTest {
 
@@ -109,6 +108,15 @@ class AssessmentRecordManagerTest {
     }
 
 
+    /**
+     * 对新增报告必填项进行缺少校验
+     * @param okTime
+     * @param patientName
+     * @param planUid
+     * @param baogUrl
+     * @param expecStatus
+     * @param expecMessage
+     */
     @ParameterizedTest
     @CsvSource({
             " , test患者,  252, testbaogUrl, 0, 测评时间不能为空;",

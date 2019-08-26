@@ -1,6 +1,6 @@
-package com.gvbrain.appApi.assessmentapp.testcaseapi;
+package com.gvbrain.api.assessmentapp.testcase;
 
-import com.gvbrain.appApi.ApiToken;
+import com.gvbrain.api.ApiToken;
 import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +15,7 @@ public class AssessmentPlanManager extends ApiToken {
      */
     public Response getAssessmentPlan(){
         return getResponseFromYaml(
-                "/api/brainPFApp/assessmentPlanManager/restAssessmentPlan.yaml",
+                "/api/assessmentapp/assessmentPlanManager/restAssessmentPlan.yaml",
                 null,
                 tokenPattern
         );
@@ -35,7 +35,7 @@ public class AssessmentPlanManager extends ApiToken {
         map.put("items",items);
         map.put("_file", "/data/assessmentapp/assessmentPlanManager/createPlan.json");
         return getResponseFromYaml(
-                "/api/brainPFApp/assessmentPlanManager/createAssessmentPlan.yaml",
+                "/api/assessmentapp/assessmentPlanManager/createAssessmentPlan.yaml",
                 map,
                 tokenPattern
         );
@@ -50,7 +50,7 @@ public class AssessmentPlanManager extends ApiToken {
         HashMap<String,Object> map = new HashMap<>();
         map.put("uid",uid);
         return getResponseFromYaml(
-                "/api/brainPFApp/assessmentPlanManager/deleteAssessmentPlan.yaml",
+                "/api/assessmentapp/assessmentPlanManager/deleteAssessmentPlan.yaml",
                 map,
                 tokenPattern
         );
@@ -72,7 +72,7 @@ public class AssessmentPlanManager extends ApiToken {
         HashMap<String,Object> map = new HashMap<>();
         map.put("uid",uid);
         return getResponseFromYaml(
-                "/api/brainPFApp/assessmentPlanManager/setAssessmentIsShow",
+                "/api/assessmentapp/assessmentPlanManager/setAssessmentIsShow",
                 map,
                 tokenPattern
         );
@@ -86,7 +86,7 @@ public class AssessmentPlanManager extends ApiToken {
         map.put("uid",uid);
         map.put("_file", "/data/assessmentapp/assessmentPlanManager/updatePlan.json");
         return getResponseFromYaml(
-                "/api/brainPFApp/assessmentPlanManager/updateAssessmentPlan.yaml",
+                "/api/assessmentapp/assessmentPlanManager/updateAssessmentPlan.yaml",
                 map,
                 tokenPattern
         );

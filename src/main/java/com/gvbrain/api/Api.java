@@ -1,22 +1,24 @@
-package com.gvbrain.appApi;
+package com.gvbrain.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
+import de.sstoehr.harreader.HarReader;
+import de.sstoehr.harreader.model.Har;
+import de.sstoehr.harreader.model.HarEntry;
+import de.sstoehr.harreader.model.HarRequest;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.IOUtils;
-import io.restassured.builder.MultiPartSpecBuilder;
-import static org.hamcrest.Matchers.equalTo;
 
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.URLDecoder;
 import java.util.HashMap;
 
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.useRelaxedHTTPSValidation;
+import static io.restassured.RestAssured.*;
 
 public class Api {
 
@@ -55,6 +57,42 @@ public class Api {
         return null;
     }
 
+    public Restful getApiFromHar(String harJsonPath ,String urlPattern){
+        HarReader harReader = new HarReader();
+        Restful restful = new Restful();
+        try {
+            //读取har文件，获取文件路径，对路径进行编码设置
+            Har har = harReader.readFromFile(new File(URLDecoder.decode(getClass().getResource(harJsonPath).getPath(), "utf-8")));
+            HarRequest harRequest = new HarRequest();
+            //遍历entries,正则匹配到包含API信息的object
+            Boolean match = false;
+            for (HarEntry entry : har.getLog().getEntries()){
+                harRequest= entry.getRequest();
+                if (harRequest.getUrl().matches(urlPattern)){
+                    match = true;
+                    break;
+                }
+            }
+            if (match == false){
+                throw new Exception("【ERROR】未找到正确的URL");
+            }
+            if (harRequest.getUrl().contains("?")){
+                restful.url = harRequest.getUrl().split("\\?")[0];
+            }else {
+                restful.url = harRequest.getUrl();
+            }
+            harRequest.getQueryString().forEach(q->{
+                restful.query.put(q.getName(),q.getValue());
+            });
+            restful.method = harRequest.getMethod().toString();
+            restful.body = harRequest.getPostData().getText();
+            return restful;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public Restful updateApiFromMap(Restful restful, HashMap<String,Object> map){
         if (map == null){
             return restful;
@@ -68,16 +106,22 @@ public class Api {
             if (map.containsKey("_body")){
                 restful.body = map.get("_body").toString();
             }
+            if (map.containsKey("_file")){
+                String filePath = map.get("_file").toString();
+                map.remove("_file");
+                restful.body = loadJsonBody(filePath,map);
+            }
             if (map.containsKey("_postPara")){
                 map.remove("_postPara");
                 map.entrySet().forEach(entry->{
                     restful.query.put(entry.getKey(),entry.getValue());
                 });
-            }
-            if (map.containsKey("_file")){
-                String filePath = map.get("_file").toString();
-                map.remove("_file");
-                restful.body = loadJsonBody(filePath,map);
+            }else {
+                DocumentContext context = JsonPath.parse(restful.body);
+                map.entrySet().forEach(key->{
+                    context.set(key.getKey(),key.getValue());
+                });
+                restful.body = context.jsonString();
             }
         }
         return restful;
@@ -145,6 +189,20 @@ public class Api {
     public Response getResponseFromYaml(String yamlPath, HashMap<String,Object> map,String tokenPattern){
         //fixed:根据yaml生成接口定义并发送
         Restful restful = getApiFromYaml(yamlPath);
+        restful = updateApiFromMap(restful, map);
+        return getResponseFromApi(restful,tokenPattern);
+    }
+
+    /**
+     * 根据har生成接口定义并发送
+     * @param harJsonPath
+     * @param urlParttern
+     * @param map
+     * @param tokenPattern
+     * @return
+     */
+    public Response getResponseFromHar(String harJsonPath,String urlPattern,HashMap<String,Object> map,String tokenPattern){
+        Restful restful = getApiFromHar(harJsonPath, urlPattern);
         restful = updateApiFromMap(restful, map);
         return getResponseFromApi(restful,tokenPattern);
     }

@@ -1,20 +1,15 @@
-package com.gvbrain.appApi.assessmentapp.testcaseapi;
+package com.gvbrain.api.assessmentapp.testcase;
 
-import com.gvbrain.appApi.Utils.RandomValueUtil;
-import com.gvbrain.appApi.assessmentapp.interfance.CreatePatient;
-import com.gvbrain.appApi.assessmentapp.interfance.FindPatient;
-import com.gvbrain.appApi.assessmentapp.interfance.UpdatePatient;
-import com.sun.xml.fastinfoset.util.StringArray;
+import com.gvbrain.api.Utils.RandomValueUtil;
+import com.gvbrain.api.assessmentapp.interfance.CreatePatient;
+import com.gvbrain.api.assessmentapp.interfance.FindPatient;
+import com.gvbrain.api.assessmentapp.interfance.UpdatePatient;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
-import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +22,7 @@ import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-class patientManagerTest {
+class PatientManagerTest {
 
     PatientManager patientManager;
     RandomValueUtil randomValueUtil = new RandomValueUtil();

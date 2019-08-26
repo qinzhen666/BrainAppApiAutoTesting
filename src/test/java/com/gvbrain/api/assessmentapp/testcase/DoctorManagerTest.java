@@ -1,11 +1,9 @@
-package com.gvbrain.appApi.assessmentapp.testcaseapi;
+package com.gvbrain.api.assessmentapp.testcase;
 
-import com.gvbrain.appApi.Utils.RandomValueUtil;
+import com.gvbrain.api.Utils.RandomValueUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.Matchers.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DoctorManagerTest {
 
