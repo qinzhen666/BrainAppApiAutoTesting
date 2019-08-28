@@ -1,3 +1,3 @@
 #删除患者信息
-url: https://ijixin.com/brain/rest/patient/delete
+url: http://ijixin.com/brain/rest/patient/delete
 method: get

@@ -1,6 +1,7 @@
 package com.gvbrain.api.assessmentapp.testcase;
 
 import com.gvbrain.api.Utils.RandomValueUtil;
+import com.gvbrain.api.assessmentapp.testcaseapi.DoctorManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.Matchers.*;

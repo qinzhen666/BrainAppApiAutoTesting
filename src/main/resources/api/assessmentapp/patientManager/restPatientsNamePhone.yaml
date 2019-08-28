@@ -1,3 +1,3 @@
 #根据患者姓名与手机号查询患者信息
-url: https://ijixin.com/brain/rest/patient
+url: http://ijixin.com/brain/rest/patient
 method: get

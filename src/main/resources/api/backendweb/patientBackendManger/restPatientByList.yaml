@@ -1,3 +1,0 @@
-#患者档案列表查询，根据姓名
-url: http://ijixin.com/brain/rest/backend/patients
-method: post

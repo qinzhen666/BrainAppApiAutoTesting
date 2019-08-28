@@ -1,0 +1,340 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "status",
+    "message",
+    "body"
+  ],
+  "properties": {
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "操作成功"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "object",
+      "title": "The Body Schema",
+      "required": [
+        "pageNumber",
+        "pageSize",
+        "totalElements",
+        "totalPages",
+        "pageList",
+        "lastPage"
+      ],
+      "properties": {
+        "pageNumber": {
+          "$id": "#/properties/body/properties/pageNumber",
+          "type": "integer",
+          "title": "The Pagenumber Schema",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "pageSize": {
+          "$id": "#/properties/body/properties/pageSize",
+          "type": "integer",
+          "title": "The Pagesize Schema",
+          "default": 0,
+          "examples": [
+            10
+          ]
+        },
+        "totalElements": {
+          "$id": "#/properties/body/properties/totalElements",
+          "type": "integer",
+          "title": "The Totalelements Schema",
+          "default": 0,
+          "examples": [
+            10
+          ]
+        },
+        "totalPages": {
+          "$id": "#/properties/body/properties/totalPages",
+          "type": "integer",
+          "title": "The Totalpages Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "pageList": {
+          "$id": "#/properties/body/properties/pageList",
+          "type": "array",
+          "title": "The Pagelist Schema",
+          "items": {
+            "$id": "#/properties/body/properties/pageList/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "uid",
+              "userRoles",
+              "userName",
+              "fullname",
+              "mobilenumber",
+              "description",
+              "email",
+              "status",
+              "createTime",
+              "updateTime",
+              "loginTime",
+              "organization"
+            ],
+            "properties": {
+              "uid": {
+                "$id": "#/properties/body/properties/pageList/items/properties/uid",
+                "type": "integer",
+                "title": "The Uid Schema",
+                "default": 0,
+                "examples": [
+                  10
+                ]
+              },
+              "userRoles": {
+                "$id": "#/properties/body/properties/pageList/items/properties/userRoles",
+                "type": "array",
+                "title": "The Userroles Schema",
+                "items": {
+                  "$id": "#/properties/body/properties/pageList/items/properties/userRoles/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "uid",
+                    "roleName",
+                    "status",
+                    "description",
+                    "permissions",
+                    "createTime",
+                    "updateTime"
+                  ],
+                  "properties": {
+                    "uid": {
+                      "$id": "#/properties/body/properties/pageList/items/properties/userRoles/items/properties/uid",
+                      "type": "integer",
+                      "title": "The Uid Schema",
+                      "default": 0,
+                      "examples": [
+                        1
+                      ]
+                    },
+                    "roleName": {
+                      "$id": "#/properties/body/properties/pageList/items/properties/userRoles/items/properties/roleName",
+                      "type": "string",
+                      "title": "The Rolename Schema",
+                      "default": "",
+                      "examples": [
+                        "系统管理员"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "status": {
+                      "$id": "#/properties/body/properties/pageList/items/properties/userRoles/items/properties/status",
+                      "type": "integer",
+                      "title": "The Status Schema",
+                      "default": 0,
+                      "examples": [
+                        1
+                      ]
+                    },
+                    "description": {
+                      "$id": "#/properties/body/properties/pageList/items/properties/userRoles/items/properties/description",
+                      "type": "string",
+                      "title": "The Description Schema",
+                      "default": "",
+                      "examples": [
+                        "系统管理员"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "permissions": {
+                      "$id": "#/properties/body/properties/pageList/items/properties/userRoles/items/properties/permissions",
+                      "type": "null",
+                      "title": "The Permissions Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "createTime": {
+                      "$id": "#/properties/body/properties/pageList/items/properties/userRoles/items/properties/createTime",
+                      "type": "string",
+                      "title": "The Createtime Schema",
+                      "default": "",
+                      "examples": [
+                        "2019-03-28 15:45:39"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "updateTime": {
+                      "$id": "#/properties/body/properties/pageList/items/properties/userRoles/items/properties/updateTime",
+                      "type": "string",
+                      "title": "The Updatetime Schema",
+                      "default": "",
+                      "examples": [
+                        "2019-06-28 14:40:38"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  }
+                }
+              },
+              "userName": {
+                "$id": "#/properties/body/properties/pageList/items/properties/userName",
+                "type": "string",
+                "title": "The Username Schema",
+                "default": "",
+                "examples": [
+                  "GT5S@263.net"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "fullname": {
+                "$id": "#/properties/body/properties/pageList/items/properties/fullname",
+                "type": "string",
+                "title": "The Fullname Schema",
+                "default": "",
+                "examples": [
+                  "殳生宁"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "mobilenumber": {
+                "$id": "#/properties/body/properties/pageList/items/properties/mobilenumber",
+                "type": "string",
+                "title": "The Mobilenumber Schema",
+                "default": "",
+                "examples": [
+                  "15177498233"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "description": {
+                "$id": "#/properties/body/properties/pageList/items/properties/description",
+                "type": "null",
+                "title": "The Description Schema",
+                "default": null,
+                "examples": [
+                  null
+                ]
+              },
+              "email": {
+                "$id": "#/properties/body/properties/pageList/items/properties/email",
+                "type": "string",
+                "title": "The Email Schema",
+                "default": "",
+                "examples": [
+                  "GT5S@263.net"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "status": {
+                "$id": "#/properties/body/properties/pageList/items/properties/status",
+                "type": "integer",
+                "title": "The Status Schema",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "createTime": {
+                "$id": "#/properties/body/properties/pageList/items/properties/createTime",
+                "type": "string",
+                "title": "The Createtime Schema",
+                "default": "",
+                "examples": [
+                  "2019-08-27 14:29:17"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "updateTime": {
+                "$id": "#/properties/body/properties/pageList/items/properties/updateTime",
+                "type": "string",
+                "title": "The Updatetime Schema",
+                "default": "",
+                "examples": [
+                  "2019-08-27 14:29:17"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "loginTime": {
+                "$id": "#/properties/body/properties/pageList/items/properties/loginTime",
+                "type": "null",
+                "title": "The Logintime Schema",
+                "default": null,
+                "examples": [
+                  null
+                ]
+              },
+              "organization": {
+                "$id": "#/properties/body/properties/pageList/items/properties/organization",
+                "type": "object",
+                "title": "The Organization Schema",
+                "required": [
+                  "children",
+                  "key",
+                  "title"
+                ],
+                "properties": {
+                  "children": {
+                    "$id": "#/properties/body/properties/pageList/items/properties/organization/properties/children",
+                    "type": "array",
+                    "title": "The Children Schema"
+                  },
+                  "key": {
+                    "$id": "#/properties/body/properties/pageList/items/properties/organization/properties/key",
+                    "type": "integer",
+                    "title": "The Key Schema",
+                    "default": 0,
+                    "examples": [
+                      1
+                    ]
+                  },
+                  "title": {
+                    "$id": "#/properties/body/properties/pageList/items/properties/organization/properties/title",
+                    "type": "string",
+                    "title": "The Title Schema",
+                    "default": "",
+                    "examples": [
+                      "总部"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "lastPage": {
+          "$id": "#/properties/body/properties/lastPage",
+          "type": "boolean",
+          "title": "The Lastpage Schema",
+          "default": false,
+          "examples": [
+            true
+          ]
+        }
+      }
+    }
+  }
+}

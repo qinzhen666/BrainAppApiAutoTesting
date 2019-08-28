@@ -1,4 +1,4 @@
-package com.gvbrain.api.assessmentapp.testcase;
+package com.gvbrain.api.e2e.testcase;
 
 import com.gvbrain.api.Utils.RandomValueUtil;
 import com.gvbrain.api.assessmentapp.interfance.AddRecord;
@@ -6,11 +6,10 @@ import com.gvbrain.api.assessmentapp.interfance.CreatePatient;
 import com.gvbrain.api.assessmentapp.testcaseapi.AssessmentPlanManager;
 import com.gvbrain.api.assessmentapp.testcaseapi.AssessmentRecordManager;
 import com.gvbrain.api.assessmentapp.testcaseapi.PatientManager;
-import org.junit.jupiter.api.BeforeAll;
+import com.gvbrain.api.backendweb.testcaseapi.RecordManager;
+import com.gvbrain.api.backendweb.testcaseapi.UserPatientManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,39 +20,65 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.Matchers.*;
 
-class AssessmentRecordManagerTest {
+public class App2WebTest {
 
-    AssessmentRecordManager assessmentRecordManager;
-    RandomValueUtil randomValueUtil = new RandomValueUtil();
+    private PatientManager patientManager ;
+    private UserPatientManager userPatientManager;
+    private RecordManager recordManager;
+    private AssessmentRecordManager assessmentRecordManager;
 
-    @BeforeAll
-    static void beforeAll(){
-        PatientManager patientManager = new PatientManager();
-        patientManager.deleteAllPatients();
-    }
 
     @BeforeEach
     void setup(){
+        if (patientManager == null){
+            patientManager = new PatientManager();
+        }
+        if (userPatientManager == null){
+            userPatientManager = new UserPatientManager();
+        }
+        if (recordManager == null){
+            recordManager = new RecordManager();
+        }
         if (assessmentRecordManager == null){
             assessmentRecordManager = new AssessmentRecordManager();
         }
     }
 
     /**
-     * 上传报告图片
+     * App创建患者-后台患者管理-查询患者
      */
     @Test
-    void uploadFile() {
-        String filePath = "/data/assessmentapp/assessmentRecordManager/CTD4.jpg";
-        assessmentRecordManager.uploadFile(filePath).then().statusCode(200).body("status",equalTo("1"));
+    void searchBackendPatientByName(){
+        //先在App端创建患者
+        String patientName = RandomValueUtil.getRandomName();
+        String phoneNumber = RandomValueUtil.getRandomPhoneNumber();
+        String patientBirthDate = RandomValueUtil.getRandomBirthDate();
+        Integer educationTime = RandomValueUtil.getNum(0,22);
+        CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
+                .buildPatientName(patientName)
+                .buildMobilePhone(phoneNumber)
+                .buildPatientBirthdate(patientBirthDate)
+                .buildEducationTime(educationTime)
+                .buildAddress("上海市浦东新区张江镇")
+                .buildPatient();
+        HashMap<String, Object> map = buildPatient.getMap();
+        System.out.println(map);
+        patientManager.createPatient(map).then().statusCode(200)
+                .body("status",equalTo("1"))
+                .body(matchesJsonSchemaInClasspath("responseSchema/assessmentapp/patientManager/createPatient.schema"));
+        //再在后台根据姓名查询患者
+        userPatientManager.searchPatientByName(patientName).then().statusCode(200)
+        .body("status",equalTo("1"))
+        .body("body.patients.patient.patientName",hasItem(patientName))
+        .body("body.patients.patient.mobilephone",hasItem(phoneNumber))
+        .body(matchesJsonSchemaInClasspath("responseSchema/backendweb/userpatientManager/searchPatientByName.schema"));
     }
 
     /**
-     * 新增测评报告 + 查询测评报告
-     * 创建患者-创建方案-测评-生成测评结果-上传测评报告图片-新增测评报告-查询测评报告
+     * App创建患者->创建方案->生成测评报告->上传测评报告->后台根据患者ID查询患者测评报告
      */
     @Test
-    void addRecord(){
+    void findRecordByPatientId(){
         //生成当前时间oktime
         Long okTime = System.currentTimeMillis();
         //创建患者，获取患者信息和uid
@@ -98,45 +123,13 @@ class AssessmentRecordManagerTest {
                 .buildBaoGUrl(baogUrl).buildRecord();
         //新增测评报告
         assessmentRecordManager.addRecord(recordMap).then().statusCode(200).body("status",equalTo("1"));
-        //查询测评报告,验证报告正确性
-        assessmentRecordManager.searchRecord(patientUid).then().statusCode(200)
+        //在后台根据患者ID查询测评报告
+        recordManager.findRecordById(patientUid).then().statusCode(200)
                 .body("status",equalTo("1"))
-                .body("body[0].planId",equalTo(planUid))
-                .body("body[0].planName",equalTo(assessmentPlanName))
-                .body("body[0].personBean.uid",equalTo(patientUid))
-                .body("body[0].personBean.patientName",equalTo(patientName))
-                .body("body[0].personBean.patientBirthdate",equalTo(patientBirthDate))
-                .body("body[0].sonAnwserBeans[0].baogUrl",equalTo(baogUrl))
-                .body(matchesJsonSchemaInClasspath("responseSchema/assessmentapp/recordManager/searchRecord.schema"));
+                .body("body[0].patientUid",equalTo(patientUid))
+                .body("body[0].assessmentPlanUid",equalTo(planUid))
+                .body(matchesJsonSchemaInClasspath("responseSchema/backendweb/recordManager/findRecordByPId.schema"));
     }
 
 
-    /**
-     * 对新增报告必填项进行缺少校验
-     * @param okTime
-     * @param patientName
-     * @param planUid
-     * @param baogUrl
-     * @param expecStatus
-     * @param expecMessage
-     */
-    @ParameterizedTest
-    @CsvSource({
-            " , test患者,  252, testbaogUrl, 0, 测评时间不能为空;",
-            "1566439505726, ,  252, testbaogUrl, 0, 患者姓名不能为空;",
-            "1566439505726, test患者,  , testbaogUrl, 0, 测评方案编号不能为空;",
-            "1566439505726, test患者,  252, , 0, 报告图片地址不能为空;"
-    })
-    void addRecordFail(Long okTime,String patientName,String planUid,String baogUrl,String expecStatus,String expecMessage){
-        //生成测评报告
-        HashMap<String,Object> recordMap = new AddRecord()
-                .buildOkTime(okTime)
-                .buildPatientName(patientName)
-                .buildPlanId(planUid)
-                .buildBaoGUrl(baogUrl).buildRecord();
-        //新增测评报告
-        assessmentRecordManager.addRecord(recordMap).then().statusCode(200)
-                .body("status",equalTo(expecStatus))
-                .body("message",equalTo(expecMessage));
-    }
 }

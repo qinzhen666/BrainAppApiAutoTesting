@@ -12,7 +12,7 @@
         "time": 30.517999999574386,
         "request": {
           "method": "POST",
-          "url": "https://ijixin.com/brain/rest/backend/patients",
+          "url": "http://ijixin.com/brain/rest/backend/patients",
           "httpVersion": "HTTP/1.1",
           "headers": [
             {

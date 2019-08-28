@@ -4,6 +4,7 @@ import com.gvbrain.api.Utils.RandomValueUtil;
 import com.gvbrain.api.assessmentapp.interfance.CreatePatient;
 import com.gvbrain.api.assessmentapp.interfance.FindPatient;
 import com.gvbrain.api.assessmentapp.interfance.UpdatePatient;
+import com.gvbrain.api.assessmentapp.testcaseapi.PatientManager;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -97,16 +98,15 @@ class PatientManagerTest {
                 .body("message", equalTo(expected));
     }
     static Stream<Arguments> patientInfoProvider(){
-        RandomValueUtil randomValueUtil = new RandomValueUtil();
         List<Arguments> list = new ArrayList<>();
-        Arguments arguments = null;
+        Arguments arguments;
         for (int i = 0 ; i < 4; i++){
             List<Object> objectList= new ArrayList<>();
             List<String> expectedList = Arrays.asList("姓名不允许为空!;","手机号不允许为空!;","出生日期不允许为空!;","教育时间不允许为空!;");
-            String patientName = randomValueUtil.getRandomName();
-            String phoneNumber = randomValueUtil.getRandomPhoneNumber();
-            String patientBirthDate = randomValueUtil.getRandomBirthDate();
-            Integer educationTime = randomValueUtil.getNum(0,22);
+            String patientName = RandomValueUtil.getRandomName();
+            String phoneNumber = RandomValueUtil.getRandomPhoneNumber();
+            String patientBirthDate = RandomValueUtil.getRandomBirthDate();
+            Integer educationTime = RandomValueUtil.getNum(0,22);
             objectList.add(patientName);
             objectList.add(phoneNumber);
             objectList.add(patientBirthDate);

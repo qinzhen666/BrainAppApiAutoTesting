@@ -1,6 +1,8 @@
 package com.gvbrain.api.assessmentapp.testcase;
 
 import com.gvbrain.api.Utils.RandomValueUtil;
+import com.gvbrain.api.assessmentapp.testcaseapi.AssessmentPlanManager;
+import com.gvbrain.api.assessmentapp.testcaseapi.DoctorManager;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -126,11 +128,20 @@ class AssessmentPlanManagerTest {
         Integer uid = createPlanGetUid();
         //设置首页可见
         assessmentPlanManager.setIsShow(uid).then().statusCode(200).body("status",equalTo("1"));
+        //查找当前用户自定义方案的位置
+        List uidList = doctorManager.getDoctorInfo().then().statusCode(200).extract().path("body.assessmentPlans.uid");
+        Integer userIndex = 0;
+        for (int i = 0; i < uidList.size(); i++){
+            userIndex = i;
+            if (uidList.get(i) == uid){
+                break;
+            }
+        }
         //检查首页是否可见此方案，isShow=0
         doctorManager.getDoctorInfo().then().statusCode(200)
                 .body("status",equalTo("1"))
                 .body("body.assessmentPlans.uid",hasItem(uid))
-                .body("body.assessmentPlans.isShow[0]",equalTo(0));
+                .body(String.format("body.assessmentPlans.isShow[%d]",userIndex),equalTo(0));
         //设置首页不可见
         assessmentPlanManager.setIsShow(uid).then().statusCode(200).body("status",equalTo("1"));
         //检查首页是否不可见此方案

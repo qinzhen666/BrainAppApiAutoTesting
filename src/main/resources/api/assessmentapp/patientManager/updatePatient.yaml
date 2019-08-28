@@ -2,5 +2,5 @@
 # 1、选择“编辑患者”，若患者"patientName"和"mobilephone"都不变，则为编辑,"status"传入0
 # 2、选择“编辑患者”，若患者"patientName"和"mobilephone"都任意一个发生改变，则为新增,"status"传入1
 # 3、选择“创建患者”，若检查患者"patientName"和"mobilephone"在数据库已存在，则为编辑，"status"传入0
-url: https://ijixin.com/brain/rest/patient/update
+url: http://ijixin.com/brain/rest/patient/update
 method: post

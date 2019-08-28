@@ -16,7 +16,11 @@ public class ApiToken extends Api{
     public RequestSpecification getDefaultRequestSpecification(String tokenPattern){
         RequestSpecification requestSpecification = super.getDefaultRequestSpecification(tokenPattern);
         try {
-            return requestSpecification.header("Token",ApiToken.getToken(tokenPattern)).contentType(ContentType.JSON);
+            if (tokenPattern.equals("brainPlatform")) {
+                return requestSpecification.header("Token", ApiToken.getAppToken(tokenPattern)).contentType(ContentType.JSON);
+            }else if (tokenPattern.equals("brainBackend")){
+                return requestSpecification.header("Token", ApiToken.getBackendToken(tokenPattern)).contentType(ContentType.JSON);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,7 +39,7 @@ public class ApiToken extends Api{
 
     public static String getBrainPlatformBackendToken() throws Exception {
         String url = setLoginEnv() + "/rest/user/login";
-        String password = "suiren123";
+        String password = "Suiren123";
         String passwordEncrypt = RSAEncryptUtil.encrypt(password);
         String body = "{\"userType\":0,\"userName\":\"qinzhen@green-valley.com\",\"password\":\""+ passwordEncrypt +"\"}";
         return RestAssured.given().log().all()
@@ -65,27 +69,31 @@ public class ApiToken extends Api{
     }
 
 
-    public static String getToken(String tokenPattern) throws Exception {
-        //fixed:支持两种类型的token
+    public static String getAppToken(String tokenPattern) throws Exception {
+        //todo:支持两种类型的token
         if (appToken == null) {
             if (tokenPattern.equals("brainPlatform")) {
                 appToken = getBrainPlatformAppToken();
                 return appToken;
             }
+
+            if (tokenPattern.equals("specialToken")) {
+                appToken = getBrainAppSpecialToken();
+                return appToken;
+            }
         }
-        if (backendToken == null) {
+        return appToken;
+    }
+
+
+    public static String getBackendToken(String tokenPattern) throws Exception {
+        if (backendToken == null){
             if (tokenPattern.equals("brainBackend")) {
                 backendToken = getBrainPlatformBackendToken();
                 return backendToken;
             }
         }
-            if (tokenPattern.equals("specialToken")){
-                appToken = getBrainAppSpecialToken();
-                return appToken;
-            }else {
-                throw new Exception("[Error]未找到匹配的tokenPattern");
-            }
-//        }return token;
+        return backendToken;
     }
 
 

@@ -1,0 +1,305 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "status",
+    "message",
+    "body"
+  ],
+  "properties": {
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": ""
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "操作成功"
+      ],
+      "pattern": ""
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "array",
+      "title": "The Body Schema",
+      "items": {
+        "$id": "#/properties/body/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "uid",
+          "items",
+          "patientUid",
+          "doctorUid",
+          "patientName",
+          "patientSex",
+          "education",
+          "patientAge",
+          "patientBirthdate",
+          "assessmentPlanUid",
+          "assessmentPlanName",
+          "checkTime",
+          "assessmentDate"
+        ],
+        "properties": {
+          "uid": {
+            "$id": "#/properties/body/items/properties/uid",
+            "type": "integer",
+            "title": "The Uid Schema",
+            "default": 0,
+            "examples": [
+              92
+            ]
+          },
+          "items": {
+            "$id": "#/properties/body/items/properties/items",
+            "type": "array",
+            "title": "The Items Schema",
+            "items": {
+              "$id": "#/properties/body/items/properties/items/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "uid",
+                "assessmentUid",
+                "assessmentName",
+                "assessmentContent",
+                "score",
+                "normalScore",
+                "testId",
+                "reportUrl",
+                "result",
+                "assessmentAnswer",
+                "createTime"
+              ],
+              "properties": {
+                "uid": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/uid",
+                  "type": "integer",
+                  "title": "The Uid Schema",
+                  "default": 0,
+                  "examples": [
+                    149
+                  ]
+                },
+                "assessmentUid": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/assessmentUid",
+                  "type": "integer",
+                  "title": "The Assessmentuid Schema",
+                  "default": 0,
+                  "examples": [
+                    3
+                  ]
+                },
+                "assessmentName": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/assessmentName",
+                  "type": "string",
+                  "title": "The Assessmentname Schema",
+                  "default": "",
+                  "examples": [
+                    "CDT4（画钟测验）"
+                  ],
+                  "pattern": ""
+                },
+                "assessmentContent": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/assessmentContent",
+                  "type": "string",
+                  "title": "The Assessmentcontent Schema",
+                  "default": "",
+                  "examples": [
+                    "筛查视空间知觉障碍"
+                  ],
+                  "pattern": ""
+                },
+                "score": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/score",
+                  "type": "integer",
+                  "title": "The Score Schema",
+                  "default": 0,
+                  "examples": [
+                    3
+                  ]
+                },
+                "normalScore": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/normalScore",
+                  "type": "string",
+                  "title": "The Normalscore Schema",
+                  "default": "",
+                  "examples": [
+                    "＝4分"
+                  ],
+                  "pattern": ""
+                },
+                "testId": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/testId",
+                  "type": "string",
+                  "title": "The Testid Schema",
+                  "default": "",
+                  "examples": [
+                    "CDT"
+                  ],
+                  "pattern": ""
+                },
+                "reportUrl": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/reportUrl",
+                  "type": "string",
+                  "title": "The Reporturl Schema",
+                  "default": "",
+                  "examples": [
+                    "http://greenvalley.oss-cn-shanghai.aliyuncs.com/assessmentRecord/myFile?Expires=1882344567&OSSAccessKeyId=LTAIVklGmTwVtyql&Signature=PDyjWsQZ1IuyUY9xu03uZkiEdu8%3D"
+                  ],
+                  "pattern": ""
+                },
+                "result": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/result",
+                  "type": "null",
+                  "title": "The Result Schema",
+                  "default": null,
+                  "examples": [
+                    null
+                  ]
+                },
+                "assessmentAnswer": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/assessmentAnswer",
+                  "type": "null",
+                  "title": "The Assessmentanswer Schema",
+                  "default": null,
+                  "examples": [
+                    null
+                  ]
+                },
+                "createTime": {
+                  "$id": "#/properties/body/items/properties/items/items/properties/createTime",
+                  "type": "string",
+                  "title": "The Createtime Schema",
+                  "default": "",
+                  "examples": [
+                    "2019-08-28T09:29:28.000+0000"
+                  ],
+                  "pattern": ""
+                }
+              }
+            }
+          },
+          "patientUid": {
+            "$id": "#/properties/body/items/properties/patientUid",
+            "type": "integer",
+            "title": "The Patientuid Schema",
+            "default": 0,
+            "examples": [
+              429
+            ]
+          },
+          "doctorUid": {
+            "$id": "#/properties/body/items/properties/doctorUid",
+            "type": "integer",
+            "title": "The Doctoruid Schema",
+            "default": 0,
+            "examples": [
+              2
+            ]
+          },
+          "patientName": {
+            "$id": "#/properties/body/items/properties/patientName",
+            "type": "string",
+            "title": "The Patientname Schema",
+            "default": "",
+            "examples": [
+              "屈信友"
+            ],
+            "pattern": ""
+          },
+          "patientSex": {
+            "$id": "#/properties/body/items/properties/patientSex",
+            "type": "integer",
+            "title": "The Patientsex Schema",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          },
+          "education": {
+            "$id": "#/properties/body/items/properties/education",
+            "type": "string",
+            "title": "The Education Schema",
+            "default": "",
+            "examples": [
+              "初中"
+            ],
+            "pattern": ""
+          },
+          "patientAge": {
+            "$id": "#/properties/body/items/properties/patientAge",
+            "type": "integer",
+            "title": "The Patientage Schema",
+            "default": 0,
+            "examples": [
+              49
+            ]
+          },
+          "patientBirthdate": {
+            "$id": "#/properties/body/items/properties/patientBirthdate",
+            "type": "string",
+            "title": "The Patientbirthdate Schema",
+            "default": "",
+            "examples": [
+              "1970-05-27"
+            ],
+            "pattern": ""
+          },
+          "assessmentPlanUid": {
+            "$id": "#/properties/body/items/properties/assessmentPlanUid",
+            "type": "integer",
+            "title": "The Assessmentplanuid Schema",
+            "default": 0,
+            "examples": [
+              301
+            ]
+          },
+          "assessmentPlanName": {
+            "$id": "#/properties/body/items/properties/assessmentPlanName",
+            "type": "string",
+            "title": "The Assessmentplanname Schema",
+            "default": "",
+            "examples": [
+              "方案名称jHpI"
+            ],
+            "pattern": ""
+          },
+          "checkTime": {
+            "$id": "#/properties/body/items/properties/checkTime",
+            "type": "string",
+            "title": "The Checktime Schema",
+            "default": "",
+            "examples": [
+              "1566984566144"
+            ],
+            "pattern": ""
+          },
+          "assessmentDate": {
+            "$id": "#/properties/body/items/properties/assessmentDate",
+            "type": "string",
+            "title": "The Assessmentdate Schema",
+            "default": "",
+            "examples": [
+              "2019-08-28 17:29:28"
+            ],
+            "pattern": ""
+          }
+        }
+      }
+    }
+  }
+}

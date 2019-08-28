@@ -1,4 +1,4 @@
-package com.gvbrain.api.assessmentapp.testcase;
+package com.gvbrain.api.assessmentapp.testcaseapi;
 
 import com.gvbrain.api.ApiToken;
 import io.restassured.response.Response;

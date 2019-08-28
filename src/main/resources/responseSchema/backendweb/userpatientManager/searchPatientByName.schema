@@ -1,0 +1,502 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "status",
+    "message",
+    "body"
+  ],
+  "properties": {
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "操作成功"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "object",
+      "title": "The Body Schema",
+      "required": [
+        "pageNumber",
+        "patients",
+        "totalPages",
+        "pageSize",
+        "totalElements"
+      ],
+      "properties": {
+        "pageNumber": {
+          "$id": "#/properties/body/properties/pageNumber",
+          "type": "integer",
+          "title": "The Pagenumber Schema",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "patients": {
+          "$id": "#/properties/body/properties/patients",
+          "type": "array",
+          "title": "The Patients Schema",
+          "items": {
+            "$id": "#/properties/body/properties/patients/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "medicalHistoryType",
+              "medicationNames",
+              "patient",
+              "assessmentRecordsCount",
+              "assessmentRecords",
+              "creater"
+            ],
+            "properties": {
+              "medicalHistoryType": {
+                "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType",
+                "type": "array",
+                "title": "The Medicalhistorytype Schema",
+                "items": {
+                  "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "uid",
+                    "medications",
+                    "medicalHistoryName",
+                    "medicalHistoryIdentify",
+                    "medicalHistoryDegree",
+                    "medicalHistoryDescribe",
+                    "createTime"
+                  ],
+                  "properties": {
+                    "uid": {
+                      "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/uid",
+                      "type": "integer",
+                      "title": "The Uid Schema",
+                      "default": 0,
+                      "examples": [
+                        1129
+                      ]
+                    },
+                    "medications": {
+                      "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications",
+                      "type": "array",
+                      "title": "The Medications Schema",
+                      "items": {
+                        "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications/items",
+                        "type": "object",
+                        "title": "The Items Schema",
+                        "required": [
+                          "uid",
+                          "medicationName",
+                          "medicationDegree",
+                          "medicationStartTime",
+                          "medicationEndTime",
+                          "status",
+                          "reason"
+                        ],
+                        "properties": {
+                          "uid": {
+                            "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications/items/properties/uid",
+                            "type": "integer",
+                            "title": "The Uid Schema",
+                            "default": 0,
+                            "examples": [
+                              3761
+                            ]
+                          },
+                          "medicationName": {
+                            "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications/items/properties/medicationName",
+                            "type": "string",
+                            "title": "The Medicationname Schema",
+                            "default": "",
+                            "examples": [
+                              "多奈哌齐"
+                            ],
+                            "pattern": "^(.*)$"
+                          },
+                          "medicationDegree": {
+                            "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications/items/properties/medicationDegree",
+                            "type": "integer",
+                            "title": "The Medicationdegree Schema",
+                            "default": 0,
+                            "examples": [
+                              0
+                            ]
+                          },
+                          "medicationStartTime": {
+                            "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications/items/properties/medicationStartTime",
+                            "type": "null",
+                            "title": "The Medicationstarttime Schema",
+                            "default": null,
+                            "examples": [
+                              null
+                            ]
+                          },
+                          "medicationEndTime": {
+                            "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications/items/properties/medicationEndTime",
+                            "type": "null",
+                            "title": "The Medicationendtime Schema",
+                            "default": null,
+                            "examples": [
+                              null
+                            ]
+                          },
+                          "status": {
+                            "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications/items/properties/status",
+                            "type": "integer",
+                            "title": "The Status Schema",
+                            "default": 0,
+                            "examples": [
+                              -1
+                            ]
+                          },
+                          "reason": {
+                            "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medications/items/properties/reason",
+                            "type": "null",
+                            "title": "The Reason Schema",
+                            "default": null,
+                            "examples": [
+                              null
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "medicalHistoryName": {
+                      "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medicalHistoryName",
+                      "type": "string",
+                      "title": "The Medicalhistoryname Schema",
+                      "default": "",
+                      "examples": [
+                        "是否确诊为脑年痴呆"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "medicalHistoryIdentify": {
+                      "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medicalHistoryIdentify",
+                      "type": "integer",
+                      "title": "The Medicalhistoryidentify Schema",
+                      "default": 0,
+                      "examples": [
+                        0
+                      ]
+                    },
+                    "medicalHistoryDegree": {
+                      "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medicalHistoryDegree",
+                      "type": "integer",
+                      "title": "The Medicalhistorydegree Schema",
+                      "default": 0,
+                      "examples": [
+                        1
+                      ]
+                    },
+                    "medicalHistoryDescribe": {
+                      "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/medicalHistoryDescribe",
+                      "type": "null",
+                      "title": "The Medicalhistorydescribe Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "createTime": {
+                      "$id": "#/properties/body/properties/patients/items/properties/medicalHistoryType/items/properties/createTime",
+                      "type": "string",
+                      "title": "The Createtime Schema",
+                      "default": "",
+                      "examples": [
+                        "2019-08-27 08:54:54"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  }
+                }
+              },
+              "medicationNames": {
+                "$id": "#/properties/body/properties/patients/items/properties/medicationNames",
+                "type": "string",
+                "title": "The Medicationnames Schema",
+                "default": "",
+                "examples": [
+                  " 否"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "patient": {
+                "$id": "#/properties/body/properties/patients/items/properties/patient",
+                "type": "object",
+                "title": "The Patient Schema",
+                "required": [
+                  "uid",
+                  "patientName",
+                  "patientSex",
+                  "patientAge",
+                  "mobilephone",
+                  "localPhone",
+                  "takeName",
+                  "takeRelation",
+                  "patientBirthdate",
+                  "marrige",
+                  "jobType",
+                  "education",
+                  "educationTime",
+                  "address",
+                  "status",
+                  "patientIdnumber",
+                  "createTime",
+                  "updateTime"
+                ],
+                "properties": {
+                  "uid": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/uid",
+                    "type": "integer",
+                    "title": "The Uid Schema",
+                    "default": 0,
+                    "examples": [
+                      336
+                    ]
+                  },
+                  "patientName": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/patientName",
+                    "type": "string",
+                    "title": "The Patientname Schema",
+                    "default": "",
+                    "examples": [
+                      "司怡馨"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "patientSex": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/patientSex",
+                    "type": "integer",
+                    "title": "The Patientsex Schema",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  },
+                  "patientAge": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/patientAge",
+                    "type": "integer",
+                    "title": "The Patientage Schema",
+                    "default": 0,
+                    "examples": [
+                      95
+                    ]
+                  },
+                  "mobilephone": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/mobilephone",
+                    "type": "string",
+                    "title": "The Mobilephone Schema",
+                    "default": "",
+                    "examples": [
+                      "18341622692"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "localPhone": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/localPhone",
+                    "type": "string",
+                    "title": "The Localphone Schema",
+                    "default": "",
+                    "examples": [
+                      ""
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "takeName": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/takeName",
+                    "type": "string",
+                    "title": "The Takename Schema",
+                    "default": "",
+                    "examples": [
+                      ""
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "takeRelation": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/takeRelation",
+                    "type": "string",
+                    "title": "The Takerelation Schema",
+                    "default": "",
+                    "examples": [
+                      ""
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "patientBirthdate": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/patientBirthdate",
+                    "type": "string",
+                    "title": "The Patientbirthdate Schema",
+                    "default": "",
+                    "examples": [
+                      "1923-11-12"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "marrige": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/marrige",
+                    "type": "string",
+                    "title": "The Marrige Schema",
+                    "default": "",
+                    "examples": [
+                      "已婚"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "jobType": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/jobType",
+                    "type": "string",
+                    "title": "The Jobtype Schema",
+                    "default": "",
+                    "examples": [
+                      "专业技术人员"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "education": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/education",
+                    "type": "string",
+                    "title": "The Education Schema",
+                    "default": "",
+                    "examples": [
+                      "小学肄业"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "educationTime": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/educationTime",
+                    "type": "integer",
+                    "title": "The Educationtime Schema",
+                    "default": 0,
+                    "examples": [
+                      4
+                    ]
+                  },
+                  "address": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/address",
+                    "type": "string",
+                    "title": "The Address Schema",
+                    "default": "",
+                    "examples": [
+                      "上海市浦东新区张江镇"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "status": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/status",
+                    "type": "integer",
+                    "title": "The Status Schema",
+                    "default": 0,
+                    "examples": [
+                      1
+                    ]
+                  },
+                  "patientIdnumber": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/patientIdnumber",
+                    "type": "string",
+                    "title": "The Patientidnumber Schema",
+                    "default": "",
+                    "examples": [
+                      ""
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "createTime": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/createTime",
+                    "type": "string",
+                    "title": "The Createtime Schema",
+                    "default": "",
+                    "examples": [
+                      "2019-08-27"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "updateTime": {
+                    "$id": "#/properties/body/properties/patients/items/properties/patient/properties/updateTime",
+                    "type": "string",
+                    "title": "The Updatetime Schema",
+                    "default": "",
+                    "examples": [
+                      "2019-08-27"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              },
+              "assessmentRecordsCount": {
+                "$id": "#/properties/body/properties/patients/items/properties/assessmentRecordsCount",
+                "type": "integer",
+                "title": "The Assessmentrecordscount Schema",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "assessmentRecords": {
+                "$id": "#/properties/body/properties/patients/items/properties/assessmentRecords",
+                "type": "array",
+                "title": "The Assessmentrecords Schema"
+              },
+              "creater": {
+                "$id": "#/properties/body/properties/patients/items/properties/creater",
+                "type": "string",
+                "title": "The Creater Schema",
+                "default": "",
+                "examples": [
+                  " 秦朕"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        },
+        "totalPages": {
+          "$id": "#/properties/body/properties/totalPages",
+          "type": "integer",
+          "title": "The Totalpages Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "pageSize": {
+          "$id": "#/properties/body/properties/pageSize",
+          "type": "integer",
+          "title": "The Pagesize Schema",
+          "default": 0,
+          "examples": [
+            10
+          ]
+        },
+        "totalElements": {
+          "$id": "#/properties/body/properties/totalElements",
+          "type": "integer",
+          "title": "The Totalelements Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        }
+      }
+    }
+  }
+}
