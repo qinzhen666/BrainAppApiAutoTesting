@@ -10,7 +10,7 @@ public class ApiToken extends Api{
     private static String appToken;
     private static String backendToken;
     private static String BrainPlatformTestUrl = "http://192.168.1.103/brain";
-    private static String BrainPlatformDevUrl = "http://ijixin.com/brain";
+    private static String BrainPlatformDevUrl = "http://47.103.47.170/brain";
 
     @Override
     public RequestSpecification getDefaultRequestSpecification(String tokenPattern){

@@ -1,0 +1,3 @@
+#获取脑健康师信息,测评方案信息
+url: http://ijixin.com/brain/rest/doctor
+method: get

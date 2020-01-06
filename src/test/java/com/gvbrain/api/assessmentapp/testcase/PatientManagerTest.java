@@ -26,7 +26,6 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 class PatientManagerTest {
 
     PatientManager patientManager;
-    RandomValueUtil randomValueUtil = new RandomValueUtil();
 
     @BeforeAll
     static void beforeAll(){
@@ -55,10 +54,10 @@ class PatientManagerTest {
      */
     @Test
     void createPatient(){
-        String patientName = randomValueUtil.getRandomName();
-        String phoneNumber = randomValueUtil.getRandomPhoneNumber();
-        String patientBirthDate = randomValueUtil.getRandomBirthDate();
-        Integer educationTime = randomValueUtil.getNum(0,22);
+        String patientName = RandomValueUtil.getRandomName();
+        String phoneNumber = RandomValueUtil.getRandomPhoneNumber();
+        String patientBirthDate = RandomValueUtil.getRandomBirthDate();
+        Integer educationTime = RandomValueUtil.getNum(0,22);
         CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
@@ -126,11 +125,11 @@ class PatientManagerTest {
      */
     @Test
     void getPatientInfoByList() {
-        String patientName = randomValueUtil.getRandomName();
-        String phoneNumber = randomValueUtil.getRandomPhoneNumber();
-        String patientBirthDate = randomValueUtil.getRandomBirthDate();
-        Integer patientSex = randomValueUtil.getNum(0,1);
-        Integer educationTime = randomValueUtil.getNum(0,22);
+        String patientName = RandomValueUtil.getRandomName();
+        String phoneNumber = RandomValueUtil.getRandomPhoneNumber();
+        String patientBirthDate = RandomValueUtil.getRandomBirthDate();
+        Integer patientSex = RandomValueUtil.getNum(0,1);
+        Integer educationTime = RandomValueUtil.getNum(0,22);
         CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
@@ -193,10 +192,10 @@ class PatientManagerTest {
      */
     @Test
     void updatePatientNoChange(){
-        String patientName = randomValueUtil.getRandomName();
-        String phoneNumber = randomValueUtil.getRandomPhoneNumber();
-        String patientBirthDate = randomValueUtil.getRandomBirthDate();
-        Integer educationTime = randomValueUtil.getNum(0,22);
+        String patientName = RandomValueUtil.getRandomName();
+        String phoneNumber = RandomValueUtil.getRandomPhoneNumber();
+        String patientBirthDate = RandomValueUtil.getRandomBirthDate();
+        Integer educationTime = RandomValueUtil.getNum(0,22);
         CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
@@ -211,7 +210,7 @@ class PatientManagerTest {
         Integer uidTwo = from(response).getInt("body.medicalHistoryType.uid[1]");
         Integer uidThree = from(response).getInt("body.medicalHistoryType.uid[2]");
         Integer patientUid = from(response).get("body.patient.uid");
-        String patientBirthDate2 = randomValueUtil.getRandomBirthDate();
+        String patientBirthDate2 = RandomValueUtil.getRandomBirthDate();
         //姓名和手机号不变编辑患者
         HashMap<String,Object> map2 = new UpdatePatient.UpdatePatientBuilder()
                 .buildUidOne(uidOne)
@@ -238,10 +237,10 @@ class PatientManagerTest {
     @Test
     void updatePatientChangeNamePhone(){
         //先创建一个新患者
-        String patientName = randomValueUtil.getRandomName();
-        String phoneNumber = randomValueUtil.getRandomPhoneNumber();
-        String patientBirthDate = randomValueUtil.getRandomBirthDate();
-        Integer educationTime = randomValueUtil.getNum(0,22);
+        String patientName = RandomValueUtil.getRandomName();
+        String phoneNumber = RandomValueUtil.getRandomPhoneNumber();
+        String patientBirthDate = RandomValueUtil.getRandomBirthDate();
+        Integer educationTime = RandomValueUtil.getNum(0,22);
         CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)
@@ -257,7 +256,7 @@ class PatientManagerTest {
         Integer uidThree = from(response).getInt("body.medicalHistoryType.uid[2]");
         Integer patientUid = from(response).get("body.patient.uid");
         //修改患者的手机号码
-        String phoneNumberNew = randomValueUtil.getRandomPhoneNumber();
+        String phoneNumberNew = RandomValueUtil.getRandomPhoneNumber();
         //手机号改变编辑患者=新增
         HashMap<String,Object> map2 = new UpdatePatient.UpdatePatientBuilder()
                 .buildUidOne(uidOne)
@@ -277,10 +276,10 @@ class PatientManagerTest {
 
     @Test
     void deletePatient(){
-        String patientName = randomValueUtil.getRandomName();
-        String phoneNumber = randomValueUtil.getRandomPhoneNumber();
-        String patientBirthDate = randomValueUtil.getRandomBirthDate();
-        Integer educationTime = randomValueUtil.getNum(0,22);
+        String patientName = RandomValueUtil.getRandomName();
+        String phoneNumber = RandomValueUtil.getRandomPhoneNumber();
+        String patientBirthDate = RandomValueUtil.getRandomBirthDate();
+        Integer educationTime = RandomValueUtil.getNum(0,22);
         CreatePatient buildPatient = new CreatePatient.CreatePatientBuilder()
                 .buildPatientName(patientName)
                 .buildMobilePhone(phoneNumber)

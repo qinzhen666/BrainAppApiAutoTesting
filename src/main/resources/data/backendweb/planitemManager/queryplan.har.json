@@ -1,0 +1,293 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "WebInspector",
+      "version": "537.36"
+    },
+    "pages": [
+      {
+        "startedDateTime": "2019-08-29T05:21:31.020Z",
+        "id": "page_8",
+        "title": "https://ijixin.com/dist/",
+        "pageTimings": {
+          "onContentLoad": 223.7219999951776,
+          "onLoad": 223.12599999713711
+        }
+      }
+    ],
+    "entries": [
+      {
+        "startedDateTime": "2019-08-29T06:03:23.986Z",
+        "time": 24.52199999243021,
+        "request": {
+          "method": "GET",
+          "url": "http://ijixin.com/brain/rest/backend/assessmentPlan/query?pageNumber=0&pageSize=10&assessmentPlanName=1",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "ijixin.com"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "zh-CN,zh;q=0.9"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Referer",
+              "value": "https://ijixin.com/dist/"
+            },
+            {
+              "name": "Cookie",
+              "value": "loginUser=qinzhen@green-valley.com; accesstoken=Bearer%20suld3ikaHx5h/zSE5wbmon/afBfTkyDGnoiaE26pZ9zFtGIu3YSakaCcsA46qTIuZYJFRjrnvLaA6ihx8O+uZBPSJwky2QpWNsBDfjwMMVE="
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Token",
+              "value": "Bearer suld3ikaHx5h/zSE5wbmon/afBfTkyDGnoiaE26pZ9zFtGIu3YSakaCcsA46qTIuZYJFRjrnvLaA6ihx8O+uZBPSJwky2QpWNsBDfjwMMVE="
+            }
+          ],
+          "queryString": [
+            {
+              "name": "pageNumber",
+              "value": "0"
+            },
+            {
+              "name": "pageSize",
+              "value": "10"
+            },
+            {
+              "name": "assessmentPlanName",
+              "value": "1"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "loginUser",
+              "value": "qinzhen@green-valley.com",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "accesstoken",
+              "value": "Bearer%20suld3ikaHx5h/zSE5wbmon/afBfTkyDGnoiaE26pZ9zFtGIu3YSakaCcsA46qTIuZYJFRjrnvLaA6ihx8O+uZBPSJwky2QpWNsBDfjwMMVE=",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": 775,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Thu, 29 Aug 2019 06:03:24 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Server",
+              "value": "nginx/1.12.2"
+            },
+            {
+              "name": "Set-Cookie",
+              "value": "rememberMe=deleteMe; Path=/brainPlatform; Max-Age=0; Expires=Wed, 28-Aug-2019 06:03:24 GMT"
+            },
+            {
+              "name": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json;charset=UTF-8"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "rememberMe",
+              "value": "deleteMe",
+              "path": "/brainPlatform",
+              "expires": "2019-08-29T06:03:23.987Z",
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "content": {
+            "size": 131,
+            "mimeType": "application/json",
+            "compression": -12
+          },
+          "redirectURL": "",
+          "headersSize": 277,
+          "bodySize": 143,
+          "_transferSize": 420
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 1.9249999918416143,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.07999999999999996,
+          "wait": 22.037999991225078,
+          "receive": 0.47900000936351717,
+          "_blocked_queueing": 1.1149999918416142,
+          "_blocked_proxy": 0.404
+        },
+        "serverIPAddress": "47.103.47.170",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "",
+                "scriptId": "15873",
+                "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                "lineNumber": 11,
+                "columnNumber": 95819
+              },
+              {
+                "functionName": "e.exports",
+                "scriptId": "15873",
+                "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                "lineNumber": 11,
+                "columnNumber": 94030
+              },
+              {
+                "functionName": "e.exports",
+                "scriptId": "15873",
+                "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                "lineNumber": 48,
+                "columnNumber": 71190
+              }
+            ],
+            "parent": {
+              "description": "Promise.then",
+              "callFrames": [
+                {
+                  "functionName": "XmWM.s.request",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 41,
+                  "columnNumber": 35534
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 27,
+                  "columnNumber": 11541
+                },
+                {
+                  "functionName": "r",
+                  "scriptId": "15877",
+                  "url": "https://ijixin.com/dist/static/js/0.8307dd773d1929e1d924.js",
+                  "lineNumber": 0,
+                  "columnNumber": 7264
+                },
+                {
+                  "functionName": "onSearch",
+                  "scriptId": "16744",
+                  "url": "https://ijixin.com/dist/static/js/11.44abf857f874ff216815.js",
+                  "lineNumber": 0,
+                  "columnNumber": 1770
+                },
+                {
+                  "functionName": "We",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 11,
+                  "columnNumber": 11324
+                },
+                {
+                  "functionName": "n",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 11,
+                  "columnNumber": 13109
+                },
+                {
+                  "functionName": "We",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 11,
+                  "columnNumber": 11324
+                },
+                {
+                  "functionName": "e.$emit",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 11,
+                  "columnNumber": 34261
+                },
+                {
+                  "functionName": "onSearch",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 5,
+                  "columnNumber": 166272
+                },
+                {
+                  "functionName": "We",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 11,
+                  "columnNumber": 11324
+                },
+                {
+                  "functionName": "n",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 11,
+                  "columnNumber": 13109
+                },
+                {
+                  "functionName": "a._wrapper",
+                  "scriptId": "15873",
+                  "url": "https://ijixin.com/dist/static/js/vendor.3f829ebd9b6166fbb796.js",
+                  "lineNumber": 11,
+                  "columnNumber": 48477
+                }
+              ]
+            }
+          }
+        },
+        "_priority": "High",
+        "_resourceType": "xhr",
+        "connection": "607095",
+        "pageref": "page_8"
+      }
+    ]
+  }
+}

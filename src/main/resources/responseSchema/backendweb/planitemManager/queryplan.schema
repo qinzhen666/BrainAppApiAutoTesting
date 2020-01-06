@@ -1,0 +1,507 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "status",
+    "message",
+    "body"
+  ],
+  "properties": {
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": ""
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "操作成功"
+      ],
+      "pattern": ""
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "object",
+      "title": "The Body Schema",
+      "required": [
+        "pageNumber",
+        "totalPages",
+        "pageSize",
+        "assessmentPlans",
+        "totalElements"
+      ],
+      "properties": {
+        "pageNumber": {
+          "$id": "#/properties/body/properties/pageNumber",
+          "type": "integer",
+          "title": "The Pagenumber Schema",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "totalPages": {
+          "$id": "#/properties/body/properties/totalPages",
+          "type": "integer",
+          "title": "The Totalpages Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "pageSize": {
+          "$id": "#/properties/body/properties/pageSize",
+          "type": "integer",
+          "title": "The Pagesize Schema",
+          "default": 0,
+          "examples": [
+            10
+          ]
+        },
+        "assessmentPlans": {
+          "$id": "#/properties/body/properties/assessmentPlans",
+          "type": "array",
+          "title": "The Assessmentplans Schema",
+          "items": {
+            "$id": "#/properties/body/properties/assessmentPlans/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "uid",
+              "assessmentPlanName",
+              "classify",
+              "creator",
+              "doctorUid",
+              "status",
+              "assessmentPlanDescribe",
+              "hospitalName",
+              "createTime",
+              "planNum",
+              "planPatientNum",
+              "items",
+              "hospitals"
+            ],
+            "properties": {
+              "uid": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/uid",
+                "type": "integer",
+                "title": "The Uid Schema",
+                "default": 0,
+                "examples": [
+                  352
+                ]
+              },
+              "assessmentPlanName": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/assessmentPlanName",
+                "type": "string",
+                "title": "The Assessmentplanname Schema",
+                "default": "",
+                "examples": [
+                  "方案名称tgUX"
+                ],
+                "pattern": ""
+              },
+              "classify": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/classify",
+                "type": "integer",
+                "title": "The Classify Schema",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "creator": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/creator",
+                "type": "string",
+                "title": "The Creator Schema",
+                "default": "",
+                "examples": [
+                  "qinzhen@green-valley.com"
+                ],
+                "pattern": ""
+              },
+              "doctorUid": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/doctorUid",
+                "type": "null",
+                "title": "The Doctoruid Schema",
+                "default": null,
+                "examples": [
+                  null
+                ]
+              },
+              "status": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/status",
+                "type": "integer",
+                "title": "The Status Schema",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "assessmentPlanDescribe": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/assessmentPlanDescribe",
+                "type": "string",
+                "title": "The Assessmentplandescribe Schema",
+                "default": "",
+                "examples": [
+                  "方案描述tohU"
+                ],
+                "pattern": ""
+              },
+              "hospitalName": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitalName",
+                "type": "string",
+                "title": "The Hospitalname Schema",
+                "default": "",
+                "examples": [
+                  "上海市第十人民医院"
+                ],
+                "pattern": ""
+              },
+              "createTime": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/createTime",
+                "type": "string",
+                "title": "The Createtime Schema",
+                "default": "",
+                "examples": [
+                  "2019-08-29 17:55:39"
+                ],
+                "pattern": ""
+              },
+              "planNum": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/planNum",
+                "type": "integer",
+                "title": "The Plannum Schema",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "planPatientNum": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/planPatientNum",
+                "type": "integer",
+                "title": "The Planpatientnum Schema",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "items": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/items",
+                "type": "array",
+                "title": "The Items Schema",
+                "items": {
+                  "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "uid",
+                    "assessmentName",
+                    "classify",
+                    "duration",
+                    "testId",
+                    "assessmentDescribe",
+                    "normalScore",
+                    "creator",
+                    "createTime",
+                    "updateTime",
+                    "value"
+                  ],
+                  "properties": {
+                    "uid": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/uid",
+                      "type": "integer",
+                      "title": "The Uid Schema",
+                      "default": 0,
+                      "examples": [
+                        3
+                      ]
+                    },
+                    "assessmentName": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/assessmentName",
+                      "type": "string",
+                      "title": "The Assessmentname Schema",
+                      "default": "",
+                      "examples": [
+                        "CDT4（画钟测验）"
+                      ],
+                      "pattern": ""
+                    },
+                    "classify": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/classify",
+                      "type": "integer",
+                      "title": "The Classify Schema",
+                      "default": 0,
+                      "examples": [
+                        1
+                      ]
+                    },
+                    "duration": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/duration",
+                      "type": "integer",
+                      "title": "The Duration Schema",
+                      "default": 0,
+                      "examples": [
+                        3
+                      ]
+                    },
+                    "testId": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/testId",
+                      "type": "string",
+                      "title": "The Testid Schema",
+                      "default": "",
+                      "examples": [
+                        "CDT"
+                      ],
+                      "pattern": ""
+                    },
+                    "assessmentDescribe": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/assessmentDescribe",
+                      "type": "string",
+                      "title": "The Assessmentdescribe Schema",
+                      "default": "",
+                      "examples": [
+                        "筛查视空间知觉障碍"
+                      ],
+                      "pattern": ""
+                    },
+                    "normalScore": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/normalScore",
+                      "type": "string",
+                      "title": "The Normalscore Schema",
+                      "default": "",
+                      "examples": [
+                        "＝4分"
+                      ],
+                      "pattern": ""
+                    },
+                    "creator": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/creator",
+                      "type": "string",
+                      "title": "The Creator Schema",
+                      "default": "",
+                      "examples": [
+                        "zhanshengbai@green-valley.com"
+                      ],
+                      "pattern": ""
+                    },
+                    "createTime": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/createTime",
+                      "type": "string",
+                      "title": "The Createtime Schema",
+                      "default": "",
+                      "examples": [
+                        "2019-04-02 14:27:34"
+                      ],
+                      "pattern": ""
+                    },
+                    "updateTime": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/updateTime",
+                      "type": "null",
+                      "title": "The Updatetime Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "value": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/items/items/properties/value",
+                      "type": "null",
+                      "title": "The Value Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    }
+                  }
+                }
+              },
+              "hospitals": {
+                "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals",
+                "type": "array",
+                "title": "The Hospitals Schema",
+                "items": {
+                  "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "uid",
+                    "hospitalName",
+                    "province",
+                    "provinceId",
+                    "city",
+                    "cityId",
+                    "address",
+                    "lat",
+                    "lng",
+                    "gps_lng",
+                    "gps_lat",
+                    "createTime",
+                    "updateTime",
+                    "value"
+                  ],
+                  "properties": {
+                    "uid": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/uid",
+                      "type": "integer",
+                      "title": "The Uid Schema",
+                      "default": 0,
+                      "examples": [
+                        13
+                      ]
+                    },
+                    "hospitalName": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/hospitalName",
+                      "type": "string",
+                      "title": "The Hospitalname Schema",
+                      "default": "",
+                      "examples": [
+                        "上海市第十人民医院"
+                      ],
+                      "pattern": ""
+                    },
+                    "province": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/province",
+                      "type": "string",
+                      "title": "The Province Schema",
+                      "default": "",
+                      "examples": [
+                        "上海市"
+                      ],
+                      "pattern": ""
+                    },
+                    "provinceId": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/provinceId",
+                      "type": "string",
+                      "title": "The Provinceid Schema",
+                      "default": "",
+                      "examples": [
+                        "310000"
+                      ],
+                      "pattern": ""
+                    },
+                    "city": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/city",
+                      "type": "string",
+                      "title": "The City Schema",
+                      "default": "",
+                      "examples": [
+                        "闸北区"
+                      ],
+                      "pattern": ""
+                    },
+                    "cityId": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/cityId",
+                      "type": "string",
+                      "title": "The Cityid Schema",
+                      "default": "",
+                      "examples": [
+                        "310108"
+                      ],
+                      "pattern": ""
+                    },
+                    "address": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/address",
+                      "type": "string",
+                      "title": "The Address Schema",
+                      "default": "",
+                      "examples": [
+                        "上海市闸北区延长中路301号"
+                      ],
+                      "pattern": ""
+                    },
+                    "lat": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/lat",
+                      "type": "null",
+                      "title": "The Lat Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "lng": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/lng",
+                      "type": "null",
+                      "title": "The Lng Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "gps_lng": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/gps_lng",
+                      "type": "null",
+                      "title": "The Gps_lng Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "gps_lat": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/gps_lat",
+                      "type": "null",
+                      "title": "The Gps_lat Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    },
+                    "createTime": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/createTime",
+                      "type": "string",
+                      "title": "The Createtime Schema",
+                      "default": "",
+                      "examples": [
+                        "2019-06-14 10:39:27"
+                      ],
+                      "pattern": ""
+                    },
+                    "updateTime": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/updateTime",
+                      "type": "string",
+                      "title": "The Updatetime Schema",
+                      "default": "",
+                      "examples": [
+                        "2019-06-14 10:39:27"
+                      ],
+                      "pattern": ""
+                    },
+                    "value": {
+                      "$id": "#/properties/body/properties/assessmentPlans/items/properties/hospitals/items/properties/value",
+                      "type": "null",
+                      "title": "The Value Schema",
+                      "default": null,
+                      "examples": [
+                        null
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "totalElements": {
+          "$id": "#/properties/body/properties/totalElements",
+          "type": "integer",
+          "title": "The Totalelements Schema",
+          "default": 0,
+          "examples": [
+            2
+          ]
+        }
+      }
+    }
+  }
+}

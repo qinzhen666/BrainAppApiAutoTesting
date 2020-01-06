@@ -1,0 +1,320 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "status",
+    "message",
+    "body"
+  ],
+  "properties": {
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "操作成功"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "array",
+      "title": "The Body Schema",
+      "items": {
+        "$id": "#/properties/body/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "uid",
+          "hospitals",
+          "assessmentItems",
+          "assessmentPlanName",
+          "type",
+          "classify",
+          "status",
+          "assessmentPlanDescribe",
+          "assessmentNum",
+          "isShow",
+          "doctorUid",
+          "totleDuration",
+          "createTime",
+          "updateTime",
+          "creator"
+        ],
+        "properties": {
+          "uid": {
+            "$id": "#/properties/body/items/properties/uid",
+            "type": "integer",
+            "title": "The Uid Schema",
+            "default": 0,
+            "examples": [
+              179
+            ]
+          },
+          "hospitals": {
+            "$id": "#/properties/body/items/properties/hospitals",
+            "type": "array",
+            "title": "The Hospitals Schema"
+          },
+          "assessmentItems": {
+            "$id": "#/properties/body/items/properties/assessmentItems",
+            "type": "array",
+            "title": "The Assessmentitems Schema",
+            "items": {
+              "$id": "#/properties/body/items/properties/assessmentItems/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "uid",
+                "assessmentName",
+                "classify",
+                "duration",
+                "testId",
+                "assessmentDescribe",
+                "normalScore",
+                "creator",
+                "createTime",
+                "updateTime",
+                "value"
+              ],
+              "properties": {
+                "uid": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/uid",
+                  "type": "integer",
+                  "title": "The Uid Schema",
+                  "default": 0,
+                  "examples": [
+                    3
+                  ]
+                },
+                "assessmentName": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/assessmentName",
+                  "type": "string",
+                  "title": "The Assessmentname Schema",
+                  "default": "",
+                  "examples": [
+                    "CDT4（画钟测验）"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "classify": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/classify",
+                  "type": "integer",
+                  "title": "The Classify Schema",
+                  "default": 0,
+                  "examples": [
+                    1
+                  ]
+                },
+                "duration": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/duration",
+                  "type": "integer",
+                  "title": "The Duration Schema",
+                  "default": 0,
+                  "examples": [
+                    3
+                  ]
+                },
+                "testId": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/testId",
+                  "type": "string",
+                  "title": "The Testid Schema",
+                  "default": "",
+                  "examples": [
+                    "CDT"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "assessmentDescribe": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/assessmentDescribe",
+                  "type": "string",
+                  "title": "The Assessmentdescribe Schema",
+                  "default": "",
+                  "examples": [
+                    "筛查视空间知觉障碍"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "normalScore": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/normalScore",
+                  "type": "string",
+                  "title": "The Normalscore Schema",
+                  "default": "",
+                  "examples": [
+                    "＝4分"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "creator": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/creator",
+                  "type": "string",
+                  "title": "The Creator Schema",
+                  "default": "",
+                  "examples": [
+                    "zhanshengbai@green-valley.com"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "createTime": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/createTime",
+                  "type": "string",
+                  "title": "The Createtime Schema",
+                  "default": "",
+                  "examples": [
+                    "2019-04-02 14:27:34"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "updateTime": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/updateTime",
+                  "type": "null",
+                  "title": "The Updatetime Schema",
+                  "default": null,
+                  "examples": [
+                    null
+                  ]
+                },
+                "value": {
+                  "$id": "#/properties/body/items/properties/assessmentItems/items/properties/value",
+                  "type": "null",
+                  "title": "The Value Schema",
+                  "default": null,
+                  "examples": [
+                    null
+                  ]
+                }
+              }
+            }
+          },
+          "assessmentPlanName": {
+            "$id": "#/properties/body/items/properties/assessmentPlanName",
+            "type": "string",
+            "title": "The Assessmentplanname Schema",
+            "default": "",
+            "examples": [
+              "方案名称VAgg"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "type": {
+            "$id": "#/properties/body/items/properties/type",
+            "type": "integer",
+            "title": "The Type Schema",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "classify": {
+            "$id": "#/properties/body/items/properties/classify",
+            "type": "null",
+            "title": "The Classify Schema",
+            "default": null,
+            "examples": [
+              null
+            ]
+          },
+          "status": {
+            "$id": "#/properties/body/items/properties/status",
+            "type": "integer",
+            "title": "The Status Schema",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "assessmentPlanDescribe": {
+            "$id": "#/properties/body/items/properties/assessmentPlanDescribe",
+            "type": "string",
+            "title": "The Assessmentplandescribe Schema",
+            "default": "",
+            "examples": [
+              "方案描述Epzo"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "assessmentNum": {
+            "$id": "#/properties/body/items/properties/assessmentNum",
+            "type": "integer",
+            "title": "The Assessmentnum Schema",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          },
+          "isShow": {
+            "$id": "#/properties/body/items/properties/isShow",
+            "type": "integer",
+            "title": "The Isshow Schema",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "doctorUid": {
+            "$id": "#/properties/body/items/properties/doctorUid",
+            "type": "integer",
+            "title": "The Doctoruid Schema",
+            "default": 0,
+            "examples": [
+              2
+            ]
+          },
+          "totleDuration": {
+            "$id": "#/properties/body/items/properties/totleDuration",
+            "type": "integer",
+            "title": "The Totleduration Schema",
+            "default": 0,
+            "examples": [
+              15
+            ]
+          },
+          "createTime": {
+            "$id": "#/properties/body/items/properties/createTime",
+            "type": "string",
+            "title": "The Createtime Schema",
+            "default": "",
+            "examples": [
+              "2019-08-21"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "updateTime": {
+            "$id": "#/properties/body/items/properties/updateTime",
+            "type": "string",
+            "title": "The Updatetime Schema",
+            "default": "",
+            "examples": [
+              "2019-08-21"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "creator": {
+            "$id": "#/properties/body/items/properties/creator",
+            "type": "string",
+            "title": "The Creator Schema",
+            "default": "",
+            "examples": [
+              "18616210504"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    }
+  }
+}

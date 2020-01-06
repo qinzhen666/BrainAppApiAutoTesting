@@ -1,0 +1,3 @@
+#设置测评方案是否显示
+url: http://ijixin.com/brain/rest/assessmentPlan/isShow
+method: get

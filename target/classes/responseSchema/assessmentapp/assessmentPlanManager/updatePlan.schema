@@ -1,0 +1,315 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "status",
+    "message",
+    "body"
+  ],
+  "properties": {
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "操作成功"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "object",
+      "title": "The Body Schema",
+      "required": [
+        "uid",
+        "hospitals",
+        "assessmentItems",
+        "assessmentPlanName",
+        "type",
+        "classify",
+        "status",
+        "assessmentPlanDescribe",
+        "assessmentNum",
+        "isShow",
+        "doctorUid",
+        "totleDuration",
+        "createTime",
+        "updateTime",
+        "creator"
+      ],
+      "properties": {
+        "uid": {
+          "$id": "#/properties/body/properties/uid",
+          "type": "integer",
+          "title": "The Uid Schema",
+          "default": 0,
+          "examples": [
+            185
+          ]
+        },
+        "hospitals": {
+          "$id": "#/properties/body/properties/hospitals",
+          "type": "array",
+          "title": "The Hospitals Schema"
+        },
+        "assessmentItems": {
+          "$id": "#/properties/body/properties/assessmentItems",
+          "type": "array",
+          "title": "The Assessmentitems Schema",
+          "items": {
+            "$id": "#/properties/body/properties/assessmentItems/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "uid",
+              "assessmentName",
+              "classify",
+              "duration",
+              "testId",
+              "assessmentDescribe",
+              "normalScore",
+              "creator",
+              "createTime",
+              "updateTime",
+              "value"
+            ],
+            "properties": {
+              "uid": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/uid",
+                "type": "integer",
+                "title": "The Uid Schema",
+                "default": 0,
+                "examples": [
+                  2
+                ]
+              },
+              "assessmentName": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/assessmentName",
+                "type": "string",
+                "title": "The Assessmentname Schema",
+                "default": "",
+                "examples": [
+                  "MOCa（蒙特利尔认知量表）"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "classify": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/classify",
+                "type": "integer",
+                "title": "The Classify Schema",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "duration": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/duration",
+                "type": "integer",
+                "title": "The Duration Schema",
+                "default": 0,
+                "examples": [
+                  10
+                ]
+              },
+              "testId": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/testId",
+                "type": "string",
+                "title": "The Testid Schema",
+                "default": "",
+                "examples": [
+                  "MOCA"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "assessmentDescribe": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/assessmentDescribe",
+                "type": "string",
+                "title": "The Assessmentdescribe Schema",
+                "default": "",
+                "examples": [
+                  "筛查轻度认知障碍"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "normalScore": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/normalScore",
+                "type": "string",
+                "title": "The Normalscore Schema",
+                "default": "",
+                "examples": [
+                  ">26分"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "creator": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/creator",
+                "type": "string",
+                "title": "The Creator Schema",
+                "default": "",
+                "examples": [
+                  "zhanshengbai@green-valley.com"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "createTime": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/createTime",
+                "type": "string",
+                "title": "The Createtime Schema",
+                "default": "",
+                "examples": [
+                  "2019-04-02 14:26:10"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "updateTime": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/updateTime",
+                "type": "null",
+                "title": "The Updatetime Schema",
+                "default": null,
+                "examples": [
+                  null
+                ]
+              },
+              "value": {
+                "$id": "#/properties/body/properties/assessmentItems/items/properties/value",
+                "type": "null",
+                "title": "The Value Schema",
+                "default": null,
+                "examples": [
+                  null
+                ]
+              }
+            }
+          }
+        },
+        "assessmentPlanName": {
+          "$id": "#/properties/body/properties/assessmentPlanName",
+          "type": "string",
+          "title": "The Assessmentplanname Schema",
+          "default": "",
+          "examples": [
+            "方案名称Jsca"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "type": {
+          "$id": "#/properties/body/properties/type",
+          "type": "integer",
+          "title": "The Type Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "classify": {
+          "$id": "#/properties/body/properties/classify",
+          "type": "null",
+          "title": "The Classify Schema",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "status": {
+          "$id": "#/properties/body/properties/status",
+          "type": "integer",
+          "title": "The Status Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "assessmentPlanDescribe": {
+          "$id": "#/properties/body/properties/assessmentPlanDescribe",
+          "type": "string",
+          "title": "The Assessmentplandescribe Schema",
+          "default": "",
+          "examples": [
+            "方案描述gTbc"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "assessmentNum": {
+          "$id": "#/properties/body/properties/assessmentNum",
+          "type": "integer",
+          "title": "The Assessmentnum Schema",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "isShow": {
+          "$id": "#/properties/body/properties/isShow",
+          "type": "integer",
+          "title": "The Isshow Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "doctorUid": {
+          "$id": "#/properties/body/properties/doctorUid",
+          "type": "integer",
+          "title": "The Doctoruid Schema",
+          "default": 0,
+          "examples": [
+            2
+          ]
+        },
+        "totleDuration": {
+          "$id": "#/properties/body/properties/totleDuration",
+          "type": "integer",
+          "title": "The Totleduration Schema",
+          "default": 0,
+          "examples": [
+            53
+          ]
+        },
+        "createTime": {
+          "$id": "#/properties/body/properties/createTime",
+          "type": "string",
+          "title": "The Createtime Schema",
+          "default": "",
+          "examples": [
+            "2019-08-21"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "updateTime": {
+          "$id": "#/properties/body/properties/updateTime",
+          "type": "string",
+          "title": "The Updatetime Schema",
+          "default": "",
+          "examples": [
+            "2019-08-21"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "creator": {
+          "$id": "#/properties/body/properties/creator",
+          "type": "string",
+          "title": "The Creator Schema",
+          "default": "",
+          "examples": [
+            "18616210504"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}

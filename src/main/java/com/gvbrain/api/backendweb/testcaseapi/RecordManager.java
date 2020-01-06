@@ -32,9 +32,8 @@ public class RecordManager extends ApiToken {
     public Response recordsCountByDocId(Integer doctorId){
         HashMap<String,Object> map = new HashMap<>();
         map.put("uid",doctorId);
-        return getResponseFromHar(
-                "/",
-                ".*/rest/backend/doctor/recordsCount.*",
+        return getResponseFromYaml(
+                "/api/backendweb/recordManger/recordsCountByDocId.yaml",
                 map,
                 tokenPattern
         );

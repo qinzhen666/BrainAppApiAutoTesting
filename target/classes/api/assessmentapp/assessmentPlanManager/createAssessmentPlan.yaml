@@ -1,0 +1,3 @@
+#新增自定义测评方案
+url: http://ijixin.com/brain/rest/assessmentPlan
+method: post

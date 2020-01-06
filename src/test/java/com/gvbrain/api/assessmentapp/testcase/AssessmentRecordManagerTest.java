@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.*;
 
 class AssessmentRecordManagerTest {
 
-    AssessmentRecordManager assessmentRecordManager;
+    private AssessmentRecordManager assessmentRecordManager;
     RandomValueUtil randomValueUtil = new RandomValueUtil();
 
     @BeforeAll
@@ -40,20 +40,11 @@ class AssessmentRecordManagerTest {
     }
 
     /**
-     * 上传报告图片
+     * 获取所有测评过程的信息
+     * 创建患者-创建方案-测评-生成测评结果-上传测评报告图片-新增测评报告
+     * @return
      */
-    @Test
-    void uploadFile() {
-        String filePath = "/data/assessmentapp/assessmentRecordManager/CTD4.jpg";
-        assessmentRecordManager.uploadFile(filePath).then().statusCode(200).body("status",equalTo("1"));
-    }
-
-    /**
-     * 新增测评报告 + 查询测评报告
-     * 创建患者-创建方案-测评-生成测评结果-上传测评报告图片-新增测评报告-查询测评报告
-     */
-    @Test
-    void addRecord(){
+    public HashMap<String,Object> getPatientPlanRecord(){
         //生成当前时间oktime
         Long okTime = System.currentTimeMillis();
         //创建患者，获取患者信息和uid
@@ -98,6 +89,42 @@ class AssessmentRecordManagerTest {
                 .buildBaoGUrl(baogUrl).buildRecord();
         //新增测评报告
         assessmentRecordManager.addRecord(recordMap).then().statusCode(200).body("status",equalTo("1"));
+        HashMap<String,Object> allInfoMap = new HashMap<>();
+        allInfoMap.put("okTime",okTime);
+        allInfoMap.put("patientName",patientName);
+        allInfoMap.put("phoneNumber",phoneNumber);
+        allInfoMap.put("patientBirthDate",patientBirthDate);
+        allInfoMap.put("educationTime",educationTime);
+        allInfoMap.put("patientUid",patientUid);
+        allInfoMap.put("assessmentPlanDescribe",assessmentPlanDescribe);
+        allInfoMap.put("assessmentPlanName",assessmentPlanName);
+        allInfoMap.put("planUid",planUid);
+        allInfoMap.put("baogUrl",baogUrl);
+        return allInfoMap;
+    }
+
+    /**
+     * 上传报告图片
+     */
+    @Test
+    void uploadFile() {
+        String filePath = "/data/assessmentapp/assessmentRecordManager/CTD4.jpg";
+        assessmentRecordManager.uploadFile(filePath).then().statusCode(200).body("status",equalTo("1"));
+    }
+
+    /**
+     * 新增测评报告 + 查询测评报告
+     * 创建患者-创建方案-测评-生成测评结果-上传测评报告图片-新增测评报告-查询测评报告
+     */
+    @Test
+    void addRecord(){
+        HashMap<String,Object> map = getPatientPlanRecord();
+        Integer patientUid = (Integer) map.get("patientUid");
+        Integer planUid = (Integer) map.get("planUid");
+        String assessmentPlanName = (String) map.get("assessmentPlanName");
+        String patientName = (String) map.get("patientName");
+        String patientBirthDate = (String) map.get("patientBirthDate");
+        String baogUrl = (String) map.get("baogUrl");
         //查询测评报告,验证报告正确性
         assessmentRecordManager.searchRecord(patientUid).then().statusCode(200)
                 .body("status",equalTo("1"))

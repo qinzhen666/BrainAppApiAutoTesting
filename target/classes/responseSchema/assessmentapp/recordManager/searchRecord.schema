@@ -1,0 +1,253 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "status",
+    "message",
+    "body"
+  ],
+  "properties": {
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "操作成功"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "array",
+      "title": "The Body Schema",
+      "items": {
+        "$id": "#/properties/body/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "okTime",
+          "planId",
+          "planName",
+          "personBean",
+          "sonAnwserBeans"
+        ],
+        "properties": {
+          "okTime": {
+            "$id": "#/properties/body/items/properties/okTime",
+            "type": "string",
+            "title": "The Oktime Schema",
+            "default": "",
+            "examples": [
+              "1566461907048"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "planId": {
+            "$id": "#/properties/body/items/properties/planId",
+            "type": "integer",
+            "title": "The Planid Schema",
+            "default": 0,
+            "examples": [
+              191
+            ]
+          },
+          "planName": {
+            "$id": "#/properties/body/items/properties/planName",
+            "type": "string",
+            "title": "The Planname Schema",
+            "default": "",
+            "examples": [
+              "方案名称sujJ"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "personBean": {
+            "$id": "#/properties/body/items/properties/personBean",
+            "type": "object",
+            "title": "The Personbean Schema",
+            "required": [
+              "uid",
+              "patientName",
+              "patientSex",
+              "patientAge",
+              "education",
+              "patientBirthdate"
+            ],
+            "properties": {
+              "uid": {
+                "$id": "#/properties/body/items/properties/personBean/properties/uid",
+                "type": "integer",
+                "title": "The Uid Schema",
+                "default": 0,
+                "examples": [
+                  240
+                ]
+              },
+              "patientName": {
+                "$id": "#/properties/body/items/properties/personBean/properties/patientName",
+                "type": "string",
+                "title": "The Patientname Schema",
+                "default": "",
+                "examples": [
+                  "印伦群"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "patientSex": {
+                "$id": "#/properties/body/items/properties/personBean/properties/patientSex",
+                "type": "integer",
+                "title": "The Patientsex Schema",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "patientAge": {
+                "$id": "#/properties/body/items/properties/personBean/properties/patientAge",
+                "type": "integer",
+                "title": "The Patientage Schema",
+                "default": 0,
+                "examples": [
+                  80
+                ]
+              },
+              "education": {
+                "$id": "#/properties/body/items/properties/personBean/properties/education",
+                "type": "string",
+                "title": "The Education Schema",
+                "default": "",
+                "examples": [
+                  "初中"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "patientBirthdate": {
+                "$id": "#/properties/body/items/properties/personBean/properties/patientBirthdate",
+                "type": "string",
+                "title": "The Patientbirthdate Schema",
+                "default": "",
+                "examples": [
+                  "1938-09-01"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "sonAnwserBeans": {
+            "$id": "#/properties/body/items/properties/sonAnwserBeans",
+            "type": "array",
+            "title": "The Sonanwserbeans Schema",
+            "items": {
+              "$id": "#/properties/body/items/properties/sonAnwserBeans/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "baogUrl",
+                "currentScore",
+                "cepBean"
+              ],
+              "properties": {
+                "baogUrl": {
+                  "$id": "#/properties/body/items/properties/sonAnwserBeans/items/properties/baogUrl",
+                  "type": "string",
+                  "title": "The Baogurl Schema",
+                  "default": "",
+                  "examples": [
+                    "http://greenvalley.oss-cn-shanghai.aliyuncs.com/assessmentRecord/myFile?Expires=1881821908&OSSAccessKeyId=LTAIVklGmTwVtyql&Signature=VFAR5T6jD0mHdeLVSSO558JC2kE%3D"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "currentScore": {
+                  "$id": "#/properties/body/items/properties/sonAnwserBeans/items/properties/currentScore",
+                  "type": "integer",
+                  "title": "The Currentscore Schema",
+                  "default": 0,
+                  "examples": [
+                    3
+                  ]
+                },
+                "cepBean": {
+                  "$id": "#/properties/body/items/properties/sonAnwserBeans/items/properties/cepBean",
+                  "type": "object",
+                  "title": "The Cepbean Schema",
+                  "required": [
+                    "uid",
+                    "assessmentName",
+                    "assessmentDescribe",
+                    "normalScore",
+                    "testId"
+                  ],
+                  "properties": {
+                    "uid": {
+                      "$id": "#/properties/body/items/properties/sonAnwserBeans/items/properties/cepBean/properties/uid",
+                      "type": "integer",
+                      "title": "The Uid Schema",
+                      "default": 0,
+                      "examples": [
+                        121
+                      ]
+                    },
+                    "assessmentName": {
+                      "$id": "#/properties/body/items/properties/sonAnwserBeans/items/properties/cepBean/properties/assessmentName",
+                      "type": "string",
+                      "title": "The Assessmentname Schema",
+                      "default": "",
+                      "examples": [
+                        "CDT4（画钟测验）"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "assessmentDescribe": {
+                      "$id": "#/properties/body/items/properties/sonAnwserBeans/items/properties/cepBean/properties/assessmentDescribe",
+                      "type": "string",
+                      "title": "The Assessmentdescribe Schema",
+                      "default": "",
+                      "examples": [
+                        "筛查视空间知觉障碍"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "normalScore": {
+                      "$id": "#/properties/body/items/properties/sonAnwserBeans/items/properties/cepBean/properties/normalScore",
+                      "type": "string",
+                      "title": "The Normalscore Schema",
+                      "default": "",
+                      "examples": [
+                        "＝4分"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "testId": {
+                      "$id": "#/properties/body/items/properties/sonAnwserBeans/items/properties/cepBean/properties/testId",
+                      "type": "string",
+                      "title": "The Testid Schema",
+                      "default": "",
+                      "examples": [
+                        "CDT"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

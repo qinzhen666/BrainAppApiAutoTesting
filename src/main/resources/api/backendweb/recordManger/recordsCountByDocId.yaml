@@ -1,0 +1,3 @@
+#根据医生id查询测评人次
+url: http://ijixin.com/brain/rest/backend/doctor/recordsCount
+method: get
