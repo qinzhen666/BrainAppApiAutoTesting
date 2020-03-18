@@ -33,8 +33,6 @@ public class Api {
         return requestSpecification;
     }
 
-
-
     //加载json文件，对body值进行修改
     public String loadJsonBody(String jsonPath, HashMap<String,Object> map){
         DocumentContext context = JsonPath.parse(Api.class.getResourceAsStream(jsonPath));
